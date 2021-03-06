@@ -7,8 +7,10 @@
 	a = add .
 	s = status
 	c = commit -m 
+	ch = checkout -- . 
 	b = branch
 	bs = branch -M main 
+	r = git restore .
 	p = push
 	pf = push -f origin main
 	pu = push -u origin main
