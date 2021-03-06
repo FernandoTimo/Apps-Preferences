@@ -6,14 +6,14 @@
 [alias]
 	a = add .
 	s = status
-	c = commit -m "$*"
-	ac = commit -am
+	c = "!f() { git commit -m \"$*\"; }; f"
+	ac = "!f() { git commit -am \"$*\"; }; f"
 	ch = checkout -- . 
 	cch = rm -r --cached 
 	b = branch
 	bs = branch -M main 
 	r = git restore .
-	rr = reset --soft HEAD
+	rr = reset --soft HEAD~
 	p = push
 	pf = push -f origin main
 	pu = push -u origin main
