@@ -9,7 +9,9 @@
   "peacock.surpriseMeOnStartup": false,
   "peacock.affectTitleBar": true,
   "peacock.elementAdjustments": {
-    "activityBar": "darken"
+    "activityBar": "none",
+    "statusBar": "darken",
+    "titleBar": "darken"
   },
   "editor.fontFamily": "Cascadia Code",
   "editor.fontLigatures": true,
@@ -24,7 +26,7 @@
     },
     {
       "name": "",
-      "value": "#832561"
+      "value": "#330f26"
     },
     {
       "name": "",
@@ -36,5 +38,6 @@
     }
   ],
   "workbench.iconTheme": "material-icon-theme",
-  "vscode-graphql.useSchemaFileDefinitions": false
+  "vscode-graphql.useSchemaFileDefinitions": false,
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 }
