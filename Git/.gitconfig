@@ -16,5 +16,9 @@
 	file = config --global -e
 	all = "!f() { git commit -am \"$*\" && git p; }; f"
 	show = "!gitk"
-	um = config --global user.email
-	un = config --global user.name}
+	l = "!git config --local user.name && git config --local user.email"
+	g = "!git config --global user.name && git config --global user.email"
+	lt = "!git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com"
+	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
+	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
+	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
