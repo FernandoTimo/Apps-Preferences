@@ -8,6 +8,7 @@
 	s = status
 	c = commit -m 
 	ch = checkout -- . 
+	cch = rm -r --cached 
 	b = branch
 	bs = branch -M main 
 	r = git restore .
