@@ -4,6 +4,6 @@
 	email = fertimo99@gmail.com
 	name = FernandoTimo
 [alias]
-	p = git push
+	p = push
 	pf = git push -f
 	pu = git push -u
