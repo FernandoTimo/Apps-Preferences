@@ -4,6 +4,13 @@
 	email = fertimo99@gmail.com
 	name = FernandoTimo
 [alias]
+	b = branch
+	bs = branch -M main 
 	p = push
 	pf = git push -f
 	pu = git push -u
+	last = log -1 HEAD
+	file = config --global -e
+	show = "!gitk"
+	a = add .
+	s = status
