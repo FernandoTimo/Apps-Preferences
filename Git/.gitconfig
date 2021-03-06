@@ -6,8 +6,8 @@
 [alias]
 	a = add .
 	s = status
-	c = commit -m $*
-	ac = commit -am $*
+	c = commit -m "$*"
+	ac = commit -am
 	ch = checkout -- . 
 	cch = rm -r --cached 
 	b = branch
