@@ -1,0 +1,38 @@
+{
+  "workbench.colorTheme": "Timoideas - Esmeralda Soft",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "peacock.surpriseMeFromFavoritesOnly": true,
+  "peacock.surpriseMeOnStartup": false,
+  "peacock.affectTitleBar": true,
+  "peacock.elementAdjustments": {
+    "activityBar": "darken"
+  },
+  "editor.fontFamily": "Cascadia Code",
+  "editor.fontLigatures": true,
+  "peacock.favoriteColors": [
+    {
+      "name": "",
+      "value": "#f9e64a"
+    },
+    {
+      "name": "",
+      "value": "#215732"
+    },
+    {
+      "name": "",
+      "value": "#832561"
+    },
+    {
+      "name": "",
+      "value": "#fa0"
+    },
+    {
+      "name": "",
+      "value": "#42b883"
+    }
+  ],
+  "workbench.iconTheme": "mate
