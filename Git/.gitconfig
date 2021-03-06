@@ -14,7 +14,7 @@
 	pu = push -u origin main
 	last = log -1 HEAD
 	file = config --global -e
-	all = "!f() { git commit -am \"$@\" && git p; }; f"
+	all = "!f() { git commit -am \"$1\" && git p; }; f"
 	show = "!gitk"
 	um = config --global user.email
 	un = config --global user.name}
