@@ -14,8 +14,8 @@
 	bs = branch -M main 
 	r = restore .
 	rr = reset --soft HEAD~
-	ra = "!f() { git remote add origin git@github.com:$1/$2.git; };f"
-	rs = "!f() { git remote set-url origin git@github.com:$1/$2.git; };f"
+	ra = "!f() { git remote add origin git@github-\"$1\":\"$1\"/\"$2\".git; };f"
+	rs = "!f() { git remote set-url origin git@github-\"$1\":\"$1\"/\"$2\".git ; };f"
 	p = push
 	pf = push -f origin main
 	pu = push -u origin main
