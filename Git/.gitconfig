@@ -23,6 +23,7 @@
 	file = config --global -e
 	all = "!f() { git commit -am \"$*\" && git p; }; f"
 	show = "!gitk"
+	git = "!f(){ rm -rf .git; };f"
 	un = config --global user.name 
 	um = config --global user.email 
 	l = "!git config --local user.name && git config --local user.email"
