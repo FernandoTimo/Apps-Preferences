@@ -35,6 +35,106 @@
     {
       "name": "",
       "value": "#42b883"
+    },
+    {
+      "name": "a",
+      "value": "#3c7c72"
+    },
+    {
+      "name": ".",
+      "value": "#776371"
+    },
+    {
+      "name": ".",
+      "value": "#3ad3ce"
+    },
+    {
+      "name": ".",
+      "value": "#1adc67"
+    },
+    {
+      "name": ".",
+      "value": "#e56ea5"
+    },
+    {
+      "name": ".",
+      "value": "#e9f612"
+    },
+    {
+      "name": ".",
+      "value": "#c5c539"
+    },
+    {
+      "name": ".",
+      "value": "#295c5c"
+    },
+    {
+      "name": ".",
+      "value": "#d9dda7"
+    },
+    {
+      "name": ".",
+      "value": "#f184bf"
+    },
+    {
+      "name": ".",
+      "value": "#8a79ce"
+    },
+    {
+      "name": ".",
+      "value": "#2286ad"
+    },
+    {
+      "name": ".",
+      "value": "#2ee3ba"
+    },
+    {
+      "name": ".",
+      "value": "#fea792"
+    },
+    {
+      "name": ".",
+      "value": "#04d078"
+    },
+    {
+      "name": ".",
+      "value": "#677b51"
+    },
+    {
+      "name": ".",
+      "value": "#0ecd61"
+    },
+    {
+      "name": ".",
+      "value": "#f482ba"
+    },
+    {
+      "name": ".",
+      "value": "#b91fcd"
+    },
+    {
+      "name": ".",
+      "value": "#bdac9d"
+    },
+    {
+      "name": ".",
+      "value": "#1820ba"
+    },
+    {
+      "name": ".",
+      "value": "#8b62b3"
+    },
+    {
+      "name": ".",
+      "value": "#df2b0c"
+    },
+    {
+      "name": ".",
+      "value": "#a28e3e"
+    },
+    {
+      "name": ".",
+      "value": "#d5ecd3"
     }
   ],
   "workbench.iconTheme": "material-icon-theme",
