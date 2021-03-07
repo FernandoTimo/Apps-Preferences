@@ -5,7 +5,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "peacock.surpriseMeFromFavoritesOnly": false,
+  "peacock.surpriseMeFromFavoritesOnly": true,
   "peacock.surpriseMeOnStartup": false,
   "peacock.affectTitleBar": true,
   "peacock.elementAdjustments": {
