@@ -24,6 +24,7 @@
 	all = "!f() { git commit -am \"$*\" && git p; }; f"
 	show = "!gitk"
 	git = "!f(){ rm -rf .git; };f"
+	link = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
 	un = config --global user.name 
 	um = config --global user.email 
 	l = "!git config --local user.name && git config --local user.email"
