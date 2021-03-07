@@ -27,3 +27,6 @@
 	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
 	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
 	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
+	Frontend = clone https://github.com/FernandoTimo/Frontend-Next Frontend
+	Backend = clone https://github.com/FernandoTimo/Backend-Express Backend
+	App = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend"
