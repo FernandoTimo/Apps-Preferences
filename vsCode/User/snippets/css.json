@@ -1,20 +1,131 @@
 {
-  // Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
-  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
-  // same ids are connected.
-  // Example:
-  // "Print to console": {
-  // 	"prefix": "log",
-  // 	"body": [
-  // 		"console.log('$1');",
-  // 		"$2"
-  // 	],
-  // 	"description": "Log output to console"
-  // }
-  "Print to console": {
-    "prefix": "clg",
-    "body": ["console.log('${1:Timoideas}');", "$2"],
-    "description": "Imprimir en consola"
+  "Container": {
+    "prefix": ".c",
+    "body": [
+      ".Container {",
+      "\twidth: 100vw;",
+      "\theight: 100vh;",
+      "\tdisplay: grid;",
+      "\tgrid-template-rows: 1fr 6fr;",
+      "\tjustify-items: center;",
+      "}"
+    ],
+    "description": "Default next Container"
+  },
+  "Content": {
+    "prefix": ".cc",
+    "body": [
+      ".ContentContainer {",
+      "\tdisplay: flex;",
+      "\twidth: 100%;",
+      "\theight: 100%;",
+      "\tjustify-items: center;",
+      "\talign-items: center;",
+      "}"
+    ],
+    "description": "Default next Content"
+  },
+  "Grid Template Rows": {
+    "prefix": "gtr",
+    "body": "grid-template-rows: ${1: 1}fr ${1: 1}fr;",
+    "description": "Set Grid Template Rows"
+  },
+  "Grid Template Rows Repeat": {
+    "prefix": "gtrr",
+    "body": "grid-template-rows: repeat(${1: 2}, ${2: 3}fr);",
+    "description": "Set Grid Template Rows Repeat"
+  },
+  "Grid Template Columns": {
+    "prefix": "gtc",
+    "body": "grid-template-columns: ${1: 1}fr ${1: 1}fr;",
+    "description": "Set Grid Template Columns"
+  },
+  "Grid Template Columns Repeat": {
+    "prefix": "gtcr",
+    "body": "grid-template-columns: repeat(${1: 2}, ${2: 3}fr);",
+    "description": "Set Grid Template Columns Repeat"
+  },
+  "new Comment": {
+    "prefix": "nc",
+    "body": [
+      "/* $1 --------------------------------------------- */",
+      "/* --------------------- $1 ----------------------- */",
+      "/* $1 --------------------------------------------- */"
+    ],
+    "description": "new Comment"
+  },
+  "Shadow": {
+    "prefix": "bs",
+    "body": "box-shadow: 0 0 1vh #dadada;",
+    "description": "Shadow"
+  },
+  "Flex": {
+    "prefix": "f",
+    "body": "flex: 1;$1",
+    "description": "Flex "
+  },
+  "Flex direction": {
+    "prefix": "fdc",
+    "body": "flex-direction: column;",
+    "description": "Flex direction"
+  },
+  "Width Height": {
+    "prefix": "wh",
+    "body": ["width: ${1: 1}vh;", "height: ${1: 1}vh;"],
+    "description": "Width + Heigth"
+  },
+  "Size Complete": {
+    "prefix": "sz",
+    "body": ["width: 100vw;", "height: 100vh;"],
+    "description": "Width + Heigth"
+  },
+  "Size Complete Porcentaje": {
+    "prefix": "szz",
+    "body": ["width: 100%;", "height: 100%;"],
+    "description": "Width + Heigth"
+  },
+  "Flex Center": {
+    "prefix": "cc",
+    "body": [
+      "display: flex;",
+      "justify-content: center;",
+      "align-items: center;"
+    ],
+    "description": "jcc + aic"
+  },
+  "Pointer Events None": {
+    "prefix": "pen",
+    "body": "pointer-events: none;",
+    "description": "Pointer Events None"
+  },
+  "Border Radius": {
+    "prefix": "br",
+    "body": "border-radius: ${1:50%};",
+    "description": "Border Radius"
+  },
+  "Border": {
+    "prefix": "border",
+    "body": "border: .2vh solid #000;",
+    "description": "Border"
+  },
+  "Pointer Events Visible": {
+    "prefix": "pev",
+    "body": "pointer-events: visible;",
+    "description": "Pointer Events Visible"
+  },
+  "Flex Column": {
+    "prefix": "fc",
+    "body": "flex-direction: column;",
+    "description": "Flex Column"
+  },
+  "@media": {
+    "prefix": "@media",
+    "body": ["@media only screen and (min-width: ${1:600}px) {", "\t$2", "}"],
+    "description": "@media"
+  },
+  "@keyframes": {
+    "prefix": "@keyframes",
+    "body": ["@keyframes ${1:animate}{", "\t0%{$2}", "\t100%{$2}", "}"],
+    "description": "@keyframes"
   }
 }
