@@ -140,5 +140,10 @@
   "workbench.iconTheme": "material-icon-theme",
   "vscode-graphql.useSchemaFileDefinitions": false,
   "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "color-highlight.languages": ["*"]
+  "color-highlight.languages": [
+    "*"
+  ],
+  "window.menuBarVisibility": "compact",
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false
 }
