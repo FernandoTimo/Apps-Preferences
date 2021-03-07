@@ -12,8 +12,10 @@
 	cch = rm -r --cached 
 	b = branch
 	bs = branch -M main 
-	r = git restore .
+	r = restore .
 	rr = reset --soft HEAD~
+	ra = remote add origin https://github.com/
+	rs = remote set-url origin https://github.com/
 	p = push
 	pf = push -f origin main
 	pu = push -u origin main
@@ -30,3 +32,4 @@
 	Frontend = clone https://github.com/FernandoTimo/Frontend-Next Frontend
 	Backend = clone https://github.com/FernandoTimo/Backend-Express Backend
 	App = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend"
+	nr = "!f() { echo \"#$2\" >> README.md && git init && git add . && git commit -m Inicio && git branch -M main && git remote add origin https://github.com/\"$1\"/\"$2\".git && git push -u origin main; }; f"
