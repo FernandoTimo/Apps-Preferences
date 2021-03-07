@@ -23,13 +23,17 @@
 	file = config --global -e
 	all = "!f() { git commit -am \"$*\" && git p; }; f"
 	show = "!gitk"
+	un = config --global user.name 
+	um = config --global user.email 
 	l = "!git config --local user.name && git config --local user.email"
 	g = "!git config --global user.name && git config --global user.email"
 	lt = "!git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com"
 	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
 	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
 	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
-	Frontend = clone https://github.com/FernandoTimo/Frontend-Next Frontend
-	Backend = clone https://github.com/FernandoTimo/Backend-Express Backend
-	App = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend"
+	nf = clone https://github.com/FernandoTimo/Frontend-Next Frontend
+	nb = clone https://github.com/FernandoTimo/Backend-Express Backend
+	na = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend"
 	nr = "!f() { echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git add . && git commit -m Inicio && git branch -M main && git remote add origin https://github.com/\"$1\"/\"$2\".git && git push -u origin main; }; f"
+
+	nfp = "!f() { [ $1 == 'Timoideas' ] && ( echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com && git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend && git add . && git commit -m Inicio && git branch -M main && git remote add origin https://github.com/\"$1\"/\"$2\".git && git push -u origin main)  || ( echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com && git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend && git add . && git commit -m Inicio && git branch -M main && git remote add origin https://github.com/\"$1\"/\"$2\".git && git push -u origin main;); } ; f"
