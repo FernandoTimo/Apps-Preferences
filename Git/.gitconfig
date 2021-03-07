@@ -7,15 +7,15 @@
 	a = add .
 	s = status
 	c = "!f() { git commit -m \"$*\"; }; f"
-	ac = "!f() { git commit -am \"$*\"; }; f"
+	ac = "!f() { git a && git c \"$*\"; }; f"
 	ch = checkout -- . 
 	cch = rm -r --cached 
 	b = branch
 	bs = branch -M main 
 	r = restore .
 	rr = reset --soft HEAD~
-	ra = "!f() { remote add origin https://github.com/$1/$2.git; };f"
-	rs = "!f() { remote set-url origin https://github.com/$1/$2.git; };f"
+	ra = "!f() { git remote add origin git@github.com:$1/$2.git; };f"
+	rs = "!f() { git remote set-url origin git@github.com:$1/$2.git; };f"
 	p = push
 	pf = push -f origin main
 	pu = push -u origin main
@@ -36,10 +36,5 @@
 	nf = clone https://github.com/FernandoTimo/Frontend-Next Frontend
 	nb = clone https://github.com/FernandoTimo/Backend-Express Backend
 	na = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend"
-	nr = "!f() { echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git add . && git commit -m Inicio && git branch -M main && git remote add origin https://github.com/\"$1\"/\"$2\".git && git push -u origin main; }; f"
-
-	nfp = "!f() { [ $1 == 'Timoideas' ] && ( echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com && git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend && git add . && git commit -m Inicio && git branch -M main && git remote add origin https://github.com/\"$1\"/\"$2\".git && git push -u origin main)  || ( echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com && git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend && git add . && git commit -m Inicio && git branch -M main && git remote add origin https://github.com/\"$1\"/\"$2\".git && git push -u origin main;); } ; f"
-[http]
-	sslVerify = true
-[credential]
-	helper = manager-core
+	nr = "!f() { [ $1 == 'Timoideas' ] &&( git init && git lt && echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git add . && git commit -m Inicio && git branch -M main && git remote add origin git@github-\"$1\":\"$1\"/\"$2\".git && git push -u origin main;) || ( git init && git lf && echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git add . && git commit -m Inicio && git branch -M main && git remote add origin git@github-\"$1\":\"$1\"/\"$2\".git && git push -u origin main;) }; f"
+	nfp = "!f() { [ $1 == 'Timoideas' ] && ( echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com && git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend && git add . && git commit -m Inicio && git branch -M main && git remote add origin git@github-\"$1\":\"$1\"/\"$2\".git && git push -u origin main)  || ( echo \"#$2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git init && git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com && git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend && git add . && git commit -m Inicio && git branch -M main && git remote add origin git@github-\"$1\":\"$1\"/\"$2\".git && git push -u origin main;); } ; f"
