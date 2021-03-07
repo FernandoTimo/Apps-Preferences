@@ -144,6 +144,5 @@
     "*"
   ],
   "window.menuBarVisibility": "compact",
-  "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": false
 }
