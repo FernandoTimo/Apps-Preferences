@@ -51,7 +51,7 @@
     "command": "git.commitStaged"
   },
   {
-    "key": "ctrl+alt+oem_5",
+    "key": "shift+alt+oem_5",
     "command": "workbench.action.toggleMenuBar"
   },
   {
@@ -63,15 +63,20 @@
     "command": "-workbench.action.toggleSidebarVisibility"
   },
   {
-    "key": "ctrl+shift+oem_5",
+    "key": "ctrl+alt+oem_5",
     "command": "workbench.action.toggleStatusbarVisibility"
   },
   {
-    "key": "ctrl+shift+alt+oem_5",
+    "key": "ctrl+shift+oem_5",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
   {
     "key": "ctrl+oem_5",
     "command": "workbench.action.toggleSidebarPosition"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "-workbench.action.toggleDevTools",
+    "when": "isDevelopment"
   }
 ]
