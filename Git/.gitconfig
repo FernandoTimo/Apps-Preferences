@@ -24,7 +24,7 @@
 	all = "!f() { git commit -am \"$*\" && git p && git last; }; f"
 	show = "!gitk"
 	k = "!f(){ rm -rf .git; };f"
-	v = "!f(){ git tag -a v$1 -m \"$*\"; };f"
+	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
 	link = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
 	un = config --global user.name 
 	um = config --global user.email 
