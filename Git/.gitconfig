@@ -15,7 +15,7 @@
 	r = restore .
 	rr = reset --soft HEAD~
 	ra = "!f() { ([ $1 == 'T' ] && (git remote add origin git@github-Timoideas:Timoideas/$2.git)) || ([ $1 == 'F' ] && ( git remote add origin git@github-FernandoTimo:FernandoTimo/$2.git)) };f"
-	rs = "!f() { git remote set-url origin git@github-\"$1\":\"$1\"/\"$2\".git ; };f"
+	rs = "!f() { ([ $1 == 'T' ] && (git remote set-url origin git@github-Timoideas:Timoideas/$2.git)) || ([ $1 == 'F' ] && ( git remote set-url origin git@github-FernandoTimo:FernandoTimo/$2.git)) };f"
 	p = push
 	pf = push -f origin main
 	pu = push -u origin main
@@ -38,6 +38,8 @@
 	na = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && rm -rf Frontend/.git && git clone https://github.com/FernandoTimo/Backend-Express Backend && rm -rf Backend/.git"
 	hf = "!f() { echo \"$(tput setaf 8) >--     https://github.com/FernandoTimo/$1     --< \"; };f"
 	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
-	i = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") || ( git init  && git l$1 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Inicio && git ra $1 $2 && git pu && git last && printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && name = [$1 == 'T' ] && git h$1 $2)}; f"
+	i = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") || ( git nr $1 $2 && git l$1 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Inicio && git pu && git last && printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && name = [$1 == 'T' ] && git h$1 $2)}; f"
 	nfp = "!f() { (git na && git i $1 $2) } ; f"
-	nr = "!f() { gh repo create $1 -y -d $2 -h http://Timoideas.com --public; }; f"
+	nr = "!f() { git init && git gh$1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
+	ght = "!f() { echo \"github.com:\" > ~/.config/gh/hosts.yml && echo \"  oauth_token: fd39a4ab217cc7f52b4ce889f4be2a3d6fbdf53c\" >> ~/.config/gh/hosts.yml && echo \"  user: Timoideas\" >> ~/.config/gh/hosts.yml && echo \"  git_protocol: ssh\" >> ~/.config/gh/hosts.yml; }; f"
+	ghf = "!f() { echo \"github.com:\" > ~/.config/gh/hosts.yml && echo \"  oauth_token: f89301ccf9ad9d657d05489328f72d53524d0271\" >> ~/.config/gh/hosts.yml && echo \"  user: FernandoTimo\" >> ~/.config/gh/hosts.yml && echo \"  git_protocol: ssh\" >> ~/.config/gh/hosts.yml; }; f"
