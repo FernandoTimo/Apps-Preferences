@@ -78,5 +78,9 @@
     "key": "ctrl+shift+i",
     "command": "-workbench.action.toggleDevTools",
     "when": "isDevelopment"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "workbench.action.toggleMaximizedPanel"
   }
 ]

@@ -21,24 +21,22 @@
 	pu = push -u origin main
 	last = log -1 HEAD
 	file = config --global -e
-	all = "!f() { git commit -am \"$*\" && git p; }; f"
+	all = "!f() { git commit -am \"$*\" && git p && git last; }; f"
 	show = "!gitk"
 	k = "!f(){ rm -rf .git; };f"
 	link = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
 	un = config --global user.name 
 	um = config --global user.email 
-	l = "!git config --local user.name && git config --local user.email"
+	l = "!f() { (echo \"$(tput setaf 6)\" && git config --local user.name && git config --local user.email && echo \"$(tput sgr0)\"; )}; f"
 	g = "!git config --global user.name && git config --global user.email"
 	lt = "!git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com"
 	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
 	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
 	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
-	nf = clone https://github.com/FernandoTimo/Frontend-Next Frontend
+	nf = "clone https://github.com/FernandoTimo/Frontend-Next Frontend"
 	nb = clone https://github.com/FernandoTimo/Backend-Express Backend
-	na = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && git clone https://github.com/FernandoTimo/Backend-Express Backend"
-
-	i = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") || ( git init  && git l$1 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Inicio && git ra $1 $2 && git pu )}; f"
-		
-	nfp = "!f() { git na && git i $1 $2 } ; f"
-
-	
+	na = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && rm -rf Frontend/.git && git clone https://github.com/FernandoTimo/Backend-Express Backend && rm -rf Backend/.git"
+	hf = "!f() { echo \"$(tput setaf 8) >--     https://github.com/FernandoTimo/$1     --< \"; };f"
+	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
+	i = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") || ( git init  && git l$1 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Inicio && git ra $1 $2 && git pu && git last && printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && name = [$1 == 'T' ] && git h$1 $2)}; f"
+	nfp = "!f() { (git na && git i $1 $2) } ; f"
