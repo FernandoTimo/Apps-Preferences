@@ -21,7 +21,7 @@
 	pu = push -u origin main
 	last = log -1 HEAD
 	file = config --global -e
-	all = "!f() { git commit -am \"$*\" && git p && git last; }; f"
+	all = "!f() { git ac \"$*\" && git p && git last; }; f"
 	show = "!gitk"
 	k = "!f(){ rm -rf .git; };f"
 	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
@@ -44,3 +44,4 @@
 	i = "!f() { git validate $1 $2 || ( git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git last && printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && git h$1 $2)}; f"
 	np = "!f() { (git na && git i $1 $2) } ; f"
 	gh = "!f() { bash ~/gh$1.sh; };f"
+	vv = "!f() { gh release create v$2 -F $3.md -t $1; }; f"
