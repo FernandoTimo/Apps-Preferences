@@ -34,9 +34,9 @@
 	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
 	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
 	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
-	nf = "clone https://github.com/FernandoTimo/Frontend-Next Frontend"
-	nb = clone https://github.com/FernandoTimo/Backend-Express Backend
-	na = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && rm -rf Frontend/.git && git clone https://github.com/FernandoTimo/Backend-Express Backend && rm -rf Backend/.git"
+	nf = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && rm -rf Frontend/.git && echo \"# Frontend\"> Frontend/README.md"
+	nb = "!git clone https://github.com/FernandoTimo/Backend-Express Backend && rm -rf Backend/.git && echo \"# Backend\"> Backend/README.md"
+	na = "!git nf && git nb"
 	hf = "!f() { echo \"$(tput setaf 8) >--     https://github.com/FernandoTimo/$1     --< \"; };f"
 	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
 	nr = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
