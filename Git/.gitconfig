@@ -25,7 +25,8 @@
 	show = "!gitk"
 	k = "!f(){ rm -rf .git; };f"
 	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
-	link = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
+	gl = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
+	ul = "!f(){ cp -rl ~/Desktop/Timoideas/GitHub/Preferences/vsCode/User ~/AppData/Roaming/code/; };f"
 	un = config --global user.name 
 	um = config --global user.email 
 	l = "!f() { (echo \"$(tput setaf 6)\" && git config --local user.name && git config --local user.email && echo \"$(tput sgr0)\"; )}; f"

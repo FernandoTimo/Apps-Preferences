@@ -143,5 +143,6 @@
   "color-highlight.languages": [
     "*"
   ],
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false
 }
