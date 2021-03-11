@@ -4,10 +4,9 @@
 	email = fertimo99@gmail.com
 	name = FernandoTimo
 [alias]
-	a = add .
 	s = status
 	c = "!f() { git commit -m \"$*\"; }; f"
-	ac = "!f() { git a && git c \"$*\"; }; f"
+	ac = "!f() { git add . && git c \"$*\"; }; f"
 	ch = checkout -- . 
 	cch = rm -r --cached 
 	b = branch
@@ -21,7 +20,6 @@
 	pu = push -u origin main
 	last = log -1 HEAD
 	file = config --global -e
-	all = "!f() { git ac \"$*\" && git p && git last; }; f"
 	show = "!gitk"
 	k = "!f(){ rm -rf .git; };f"
 	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
@@ -42,10 +40,14 @@
 	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
 	msg = "!f() { printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && git h$1 $2; } ; f"
 	validate = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") }; f"
+	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git last && git msg; }; f"
+	# FULL comands
+	a = "!f() { git ac \"$*\" && git p && git last; }; f"
+	i = "!f() { git validate $1 $2 || ( git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git last && git msg)}; f"
+	ip = "!f() { (git na && git i $1 $2) } ; f"
+	# GH - cli
+	gh = "!f() { bash ~/gh$1.sh; };f"
 	nr = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
 	nrf = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y --template https://github.com/FernandoTimo/Frontend-Next && git pull origin main && echo \"# Frontend $2\"> README.md && git rs $1 $2 && git msg; }; f"
 	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y --template https://github.com/FernandoTimo/Backend-Express && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git msg; }; f"
-	i = "!f() { git validate $1 $2 || ( git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git last && git msg)}; f"
-	np = "!f() { (git na && git i $1 $2) } ; f"
-	gh = "!f() { bash ~/gh$1.sh; };f"
 	vv = "!f() { gh release create v$2 -F $3.md -t $1; }; f"
