@@ -9,6 +9,7 @@
 	ac = "!f() { git add . && git c \"$*\"; }; f"
 	ch = checkout -- . 
 	cch = rm -r --cached 
+	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
 	b = branch
 	bs = branch -M main 
 	r = restore .
@@ -18,21 +19,28 @@
 	p = push
 	pf = push -f origin main
 	pu = push -u origin main
-	last = log -1 HEAD
 	file = config --global -e
-	show = "!gitk"
+	# SHOW - logs
+	sei = "!gitk"
+	srr = config --get remote.origin.url
+	sc = log -1 HEAD
+	slf = log --graph 
+	sls = log --graph --oneline
+	# REMOVE - files and documents
 	k = "!f(){ rm -rf .git; };f"
-	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
-	gl = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
+	# LINK - custom config
 	ul = "!f(){ cp -rl ~/Desktop/Timoideas/GitHub/Preferences/vsCode/User ~/AppData/Roaming/code/; };f"
+	gl = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
+	# CONFIG - local, global user values.
 	un = config --global user.name 
-	um = config --global user.email 
+	um = config --global user.email
 	l = "!f() { (echo \"$(tput setaf 6)\" && git config --local user.name && git config --local user.email && echo \"$(tput sgr0)\"; )}; f"
 	g = "!git config --global user.name && git config --global user.email"
 	lt = "!git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com"
 	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
 	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
 	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
+	# NEW - local repos 
 	nlf = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && rm -rf Frontend/.git && echo \"# Frontend\"> Frontend/README.md"
 	nlb = "!git clone https://github.com/FernandoTimo/Backend-Express Backend && rm -rf Backend/.git && echo \"# Backend\"> Backend/README.md"
 	nlp = "!git nf && git nb"
@@ -41,14 +49,14 @@
 	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
 	msg = "!f() { printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && git h$1 $2; } ; f"
 	validate = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") }; f"
-	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git last && git msg; }; f"
+	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sll && git msg; }; f"
 	# FULL - comands
-	a = "!f() { git ac \"$*\" && git p && git last; }; f"
-	i = "!f() { git validate $1 $2 || ( git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git last && git msg)}; f"
+	a = "!f() { git ac \"$*\" && git p && git sll; }; f"
+	i = "!f() { git validate $1 $2 || ( git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sll && git msg)}; f"
 	ip = "!f() { (git na && git i $1 $2) } ; f"
 	# GH - cli
 	gh = "!f() { bash ~/gh$1.sh; };f"
-	nr = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
+	nrr = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
 	nrf = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y --template https://github.com/FernandoTimo/Frontend-Next && git pull origin main && echo \"# Frontend $2\"> README.md && git rs $1 $2 && git msg; }; f"
 	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y --template https://github.com/FernandoTimo/Backend-Express && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git msg; }; f"
 	vv = "!f() { gh release create v$2 -F $3.md -t $1; }; f"
