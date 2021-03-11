@@ -10,7 +10,6 @@
 	ch = checkout -- . 
 	cch = rm -r --cached 
 	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
-	b = branch
 	bs = branch -M main 
 	r = restore .
 	rr = reset --soft HEAD~
@@ -21,10 +20,12 @@
 	pu = push -u origin main
 	file = config --global -e
 	# SHOW - logs
-	si = "!f() { git b && git srr && git sc --oneline && git l ; }; f"
+	si = "!f() { git sb && git srr && git scs && git l; }; f"
 	sei = "!gitk"
-	srr = config --get remote.origin.url
-	sc = log -1 HEAD
+	scs = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Last commits $(tput sgr0)\" && [ -z $1 ] && (git log head -1 --oneline) || (git log head -$1 --oneline); }; f"
+	sc = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Last commits $(tput sgr0)\" && [ -z $1 ] && (git log head -1) || (git log head -$1); }; f"
+	sb = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Branch $(tput sgr0)\" && git branch; }; f"
+	srr = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Remote origin $(tput sgr0)\" && git config --get remote.origin.url; }; f"
 	slf = log --graph 
 	sls = log --graph --oneline
 	# REMOVE - files and documents
@@ -35,8 +36,8 @@
 	# CONFIG - local, global user values.
 	un = config --global user.name 
 	um = config --global user.email
-	l = "!f() { (echo \"$(tput setaf 6)\" && git config --local user.name && git config --local user.email && echo \"$(tput sgr0)\"; )}; f"
-	g = "!git config --global user.name && git config --global user.email"
+	l = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Local user $(tput sgr0)$(tput setaf 6)\" && git config --local user.name && git config --local user.email; }; f"
+	g = "!f() { (echo -e \"\n$(tput setaf 9)---------- $(tput bold)Global user $(tput sgr0)$(tput setaf 6)\" && git config --global user.name && git config --global user.email; )}; f"
 	lt = "!git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com"
 	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
 	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
