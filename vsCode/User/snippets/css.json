@@ -1,4 +1,9 @@
 {
+  "Default Styles": {
+    "prefix": "ds",
+    "body": [".Title {", "\tfont-size: 2vh;", "\ttext-align: center;", "}"],
+    "description": "Default styles"
+  },
   "Container": {
     "prefix": ".c",
     "body": [
