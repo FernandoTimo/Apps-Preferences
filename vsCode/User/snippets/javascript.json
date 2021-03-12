@@ -167,67 +167,42 @@
     "body": ["<Content bg center flex={1}>$1</Content>"],
     "description": "Content Component"
   },
+  "<Content>.</Content>": {
+    "prefix": ".Content",
+    "body": ["<Content bg center flex={1} className={style.$1}>$2</Content>"],
+    "description": "Content Component"
+  },
   "<Header></Header>": {
     "prefix": "Header",
-    "body": ["<Header bg center heigth={5} padding={0}>$1</Header>"],
+    "body": ["<Header bg center heigth={5}>$1</Header>"],
     "description": "Header Component"
   },
   "<Footer></Footer>": {
     "prefix": "Footer",
-    "body": ["<Footer bg center heigth={5} padding={0}>$1</Footer>"],
+    "body": ["<Footer bg center heigth={5}>$1</Footer>"],
     "description": "Footer Component"
   },
-  "<Modals></Modals>": {
-    "prefix": "Modals",
-    "body": [
-      "<Modals >",
-      "\t<Modal background={'#fff3'} center active={true} blur={1}>$1</Modal>",
-      "</Modals>"
-    ],
-    "description": "Modals Component"
-  },
-  "<Modal></>": {
+  "<Modal></Modal>": {
     "prefix": "Modal",
     "body": [
-      "<Modal background={'#fff3'} center active={true} blur={1}>$1</Modal>"
+      "<Modal bg={'#0003'} center active={[true,toggleModal]} blur={1} transition={0.3}>$1</Modal>"
     ],
     "description": "Modal Component"
-  },
-  "Div global ClassName": {
-    "prefix": ".",
-    "body": ["<div className='$1'>$2</div>"],
-    "description": "Div global ClassName"
-  },
-  "Div ClassName": {
-    "prefix": "..",
-    "body": ["<div className={${1:s}.$2}>$3</div>"],
-    "description": "Div ClassName"
   },
   "Div": {
     "prefix": "div",
     "body": ["<div>$1</div>"],
     "description": "Div ClassName"
   },
-
-  "Handler Toggle State": {
-    "prefix": "hs",
-    "body": ["const HandleState = () => {", "\tsetActive(!Active)", "}"],
-    "description": "Create Handler Toggle Function"
+  "Div ClassName": {
+    "prefix": ".",
+    "body": ["<div className='$1'>$2</div>"],
+    "description": "Div ClassName"
   },
-  "Use State": {
-    "prefix": "uses",
-    "body": "const [${1:State}, set${1:State}] = useState($2)",
-    "description": "Create useState() hook"
-  },
-  "handle Function": {
-    "prefix": "hf",
-    "body": ["const handler${1:Function} = ($2)=> {", "\t$3", "}"],
-    "description": "Create handle Function"
-  },
-  "ClassName Global": {
-    "prefix": "c",
-    "body": "className='$1'",
-    "description": "ClassName"
+  "Div ClassName Module": {
+    "prefix": "..",
+    "body": ["<div className={style.$2}>$3</div>"],
+    "description": "Div ClassName Module"
   },
   "H1": {
     "prefix": "h1",
@@ -299,11 +274,6 @@
     "body": "<button className={${1:s}.$2} onClick={$1}>$2</button>",
     "description": "Create a Buttom"
   },
-  "ClassName": {
-    "prefix": "cc",
-    "body": "className={${1:s}.$2}",
-    "description": "Create a Module ClassName"
-  },
   "Fragments": {
     "prefix": "<f",
     "body": ["<>", "$1", "</>"],
@@ -361,11 +331,11 @@
   "Export Hook Component": {
     "prefix": "edc",
     "body": [
-      "import style$1 from './$1.module.css';",
+      "import style from './$1.module.css';",
       "function ${1:Component} () {",
       "\treturn (",
-      "\t\t<div className={style$1.$1}>",
-      "\t\t\t<h2>$1</h2>$2",
+      "\t\t<div>",
+      "\t\t\t<h2 className={style.Title}>$1</h2>",
       "\t\t</div>",
       "\t)",
       "}",
@@ -538,6 +508,21 @@
     "body": "${1:attr}={${2:valor}}",
     "description": "Create pair attributes values"
   },
+  "ClassName Global Attribute": {
+    "prefix": "c",
+    "body": "className='$1'",
+    "description": "ClassName Global Attribute"
+  },
+  "ClassName Attribute": {
+    "prefix": "cc",
+    "body": "className={style.$1}",
+    "description": "ClassName Attribute"
+  },
+  "Padding Attribute": {
+    "prefix": "pd",
+    "body": "pd={${1:0.5}}",
+    "description": "Padding Attribute"
+  },
   "Pair Style values": {
     "prefix": "style",
     "body": "style={${2:valor}}",
@@ -548,7 +533,26 @@
     "body": ["'${1:token}': '${2:tokenValue}',"],
     "description": "Create pair token values"
   },
-
+  "Toggle State": {
+    "prefix": "sh",
+    "body": [
+      "const [$1, set$1] = usestate()",
+      "const toogle${1:State} = () => {",
+      "\tset$1(!$1)",
+      "}"
+    ],
+    "description": "Create Handler Toggle Function"
+  },
+  "Use State": {
+    "prefix": "uses",
+    "body": "const [${1:State}, set${1:State}] = useState($2)",
+    "description": "Create useState() hook"
+  },
+  "handle Function": {
+    "prefix": "hf",
+    "body": ["const handler${1:Function} = ($2)=> {", "\t$3", "}"],
+    "description": "Create handle Function"
+  },
   "Component Landscape": {
     "prefix": "lan",
     "body": "<Landscape f={${1:1}}>$2</Landscape>",
@@ -563,26 +567,6 @@
     "prefix": "Theme",
     "body": ["const {Theme, setTheme, isTheme} = useTheme()"],
     "description": "Import Theme"
-  },
-  "Theme _00": {
-    "prefix": "00",
-    "body": "Theme._00",
-    "description": "Theme _00"
-  },
-  "Theme _01": {
-    "prefix": "01",
-    "body": "Theme._01",
-    "description": "Theme _01"
-  },
-  "Theme _02": {
-    "prefix": "02",
-    "body": "Theme._02",
-    "description": "Theme _02"
-  },
-  "Theme _03": {
-    "prefix": "03",
-    "body": "Theme._03",
-    "description": "Theme _03"
   },
   "Comments arrow": {
     "prefix": "<>",
