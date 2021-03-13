@@ -82,5 +82,13 @@
   {
     "key": "shift+alt+w",
     "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "shift+alt+s",
+    "command": "saveAll"
+  },
+  {
+    "key": "ctrl+k s",
+    "command": "-saveAll"
   }
 ]
