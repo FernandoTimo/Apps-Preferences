@@ -37,13 +37,33 @@
   },
   "Backgound": {
     "prefix": "bg",
-    "body": "background: var(--c${1:00});",
+    "body": "background: var(--c${1:20});",
     "description": "Set Backgound"
   },
   "Backgound Hexadecimal": {
     "prefix": "bgg",
     "body": "background: #${1:fa0};",
     "description": "Set Backgound Hexadecimal"
+  },
+  "Backgound Hexadecimal Gradient": {
+    "prefix": "bggg",
+    "body": "background: linear-gradient(#${1:fa0}),#${2:4a8};",
+    "description": "Set Backgound Hexadecimal Gradient"
+  },
+  "Foreground": {
+    "prefix": "fg",
+    "body": "color: var(--c${1:00});",
+    "description": "Set Foreground"
+  },
+  "Foreground Hexadecimal": {
+    "prefix": "fgg",
+    "body": "color: #${1:fa0};",
+    "description": "Set Foreground Hexadecimal"
+  },
+  "Foreground Hexadecimal Gradient": {
+    "prefix": "fggg",
+    "body": "background: linear-gradient(#${1:fa0}),#${2:4a8};",
+    "description": "Set Foreground Hexadecimal Gradient"
   },
   "Grid Template Rows": {
     "prefix": "gtr",
