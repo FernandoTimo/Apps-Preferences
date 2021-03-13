@@ -523,6 +523,16 @@
     "body": "pd={${1:0.5}}",
     "description": "Padding Attribute"
   },
+  "OnClick Attribute": {
+    "prefix": "oc",
+    "body": "onClick={$1}",
+    "description": "OnClick Attribute"
+  },
+  "OnClick Attribute Function": {
+    "prefix": "occ",
+    "body": "onClick={() => {$1}",
+    "description": "OnClick Attribute Function"
+  },
   "Pair Style values": {
     "prefix": "style",
     "body": "style={${2:valor}}",
@@ -534,10 +544,10 @@
     "description": "Create pair token values"
   },
   "Toggle State": {
-    "prefix": "sh",
+    "prefix": "ts",
     "body": [
       "const [$1, set$1] = usestate()",
-      "const toogle${1:State} = () => {",
+      "const toggle${1:State} = () => {",
       "\tset$1(!$1)",
       "}"
     ],

@@ -30,6 +30,16 @@
     ],
     "description": "Default next Content"
   },
+  "Backgound": {
+    "prefix": "bg",
+    "body": "background: var(--c${1:00});",
+    "description": "Set Backgound"
+  },
+  "Backgound Hexadecimal": {
+    "prefix": "bgg",
+    "body": "background: #${1:fa0};",
+    "description": "Set Backgound Hexadecimal"
+  },
   "Grid Template Rows": {
     "prefix": "gtr",
     "body": "grid-template-rows: ${1: 1}fr ${1: 1}fr;",
