@@ -15,7 +15,7 @@
 	rr = reset --soft HEAD~
 	ra = "!f() { ([ $1 == 'T' ] && (git remote add origin git@github-Timoideas:Timoideas/$2.git)) || ([ $1 == 'F' ] && ( git remote add origin git@github-FernandoTimo:FernandoTimo/$2.git)) };f"
 	rs = "!f() { ([ $1 == 'T' ] && (git remote set-url origin git@github-Timoideas:Timoideas/$2.git)) || ([ $1 == 'F' ] && ( git remote set-url origin git@github-FernandoTimo:FernandoTimo/$2.git)) };f"
-	p = push
+	p = "!git push && git scs"
 	pf = push -f origin main
 	pu = push -u origin main
 	file = config --global -e
