@@ -35,6 +35,16 @@
     "body": "var(--c${1:00})",
     "description": "Set Backgound"
   },
+  "Transform Scale": {
+    "prefix": "ts",
+    "body": ["transform: scale(${1:1.1});"],
+    "description": "Set Transform Scale"
+  },
+  "Font Size": {
+    "prefix": "fs",
+    "body": ["font-size: ${1:1.5}vh;", "line-height: ${1:1.5}vh;"],
+    "description": "Set Font Size"
+  },
   "Backgound": {
     "prefix": "bg",
     "body": "background: var(--c${1:20});",
@@ -47,7 +57,7 @@
   },
   "Backgound Hexadecimal Gradient": {
     "prefix": "bggg",
-    "body": "background: linear-gradient(#${1:fa0}),#${2:4a8};",
+    "body": "background: linear-gradient(#${1:fa0}, #${2:4a8});",
     "description": "Set Backgound Hexadecimal Gradient"
   },
   "Foreground": {
@@ -62,7 +72,11 @@
   },
   "Foreground Hexadecimal Gradient": {
     "prefix": "fggg",
-    "body": "background: linear-gradient(#${1:fa0}),#${2:4a8};",
+    "body": [
+      "background: linear-gradient(#${1:fa0}, #${2:4a8});",
+      "background-clip: text;",
+      "-webkit-text-fill-color: transparent;"
+    ],
     "description": "Set Foreground Hexadecimal Gradient"
   },
   "Grid Template Rows": {
