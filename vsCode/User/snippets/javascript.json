@@ -239,6 +239,26 @@
     "body": "<label className='$1'>$2</label>",
     "description": "Label ClassName"
   },
+  "Label ClassName Module": {
+    "prefix": "..label",
+    "body": "<label className={style.$1}>$2</label>",
+    "description": "Label ClassName Module"
+  },
+  "Span": {
+    "prefix": "span",
+    "body": "<span>$1</span>",
+    "description": "Span"
+  },
+  "Span ClassName": {
+    "prefix": ".span",
+    "body": "<span className='$1'>$2</span>",
+    "description": "Span ClassName"
+  },
+  "Span ClassName Module": {
+    "prefix": "..span",
+    "body": "<span className={style.$1}>$2</span>",
+    "description": "Span ClassName Module"
+  },
   "Form": {
     "prefix": "form",
     "body": ["<form onSubmit='${2:handleForm}'>$1</form>"],
