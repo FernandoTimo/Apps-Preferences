@@ -30,6 +30,11 @@
     ],
     "description": "Default next Content"
   },
+  "variable": {
+    "prefix": "--",
+    "body": "var(--c${1:00})",
+    "description": "Set Backgound"
+  },
   "Backgound": {
     "prefix": "bg",
     "body": "background: var(--c${1:00});",
@@ -71,7 +76,7 @@
   },
   "Shadow": {
     "prefix": "bs",
-    "body": "box-shadow: 0 0 1vh #dadada;",
+    "body": "box-shadow: 0 0 1vh #${1:3333};",
     "description": "Shadow"
   },
   "Flex": {
