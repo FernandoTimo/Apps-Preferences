@@ -550,12 +550,12 @@
   },
   "OnClick Attribute Function": {
     "prefix": "occ",
-    "body": "onClick={() => {$1}",
+    "body": "onClick={() => {$1}}",
     "description": "OnClick Attribute Function"
   },
   "Pair Style values": {
     "prefix": "style",
-    "body": "style={${2:valor}}",
+    "body": "style={{${1:background}: '${2:#fa0}'}}",
     "description": "Create pair Style values"
   },
   "Pair Token values": {
