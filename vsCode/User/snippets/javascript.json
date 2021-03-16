@@ -211,8 +211,13 @@
   },
   "H1 className": {
     "prefix": ".h1",
-    "body": "<h1 className={${1:s}.$2}>$3</h1>",
+    "body": "<h1 className='$1'>$2</h1>",
     "description": "h1 className"
+  },
+  "H1 className Module": {
+    "prefix": "..h1",
+    "body": "<h1 className={style.$1}>$2</h1>",
+    "description": "h1 className Module"
   },
   "span": {
     "prefix": "sp",
