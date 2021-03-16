@@ -183,9 +183,9 @@
     "description": "Footer Component"
   },
   "<Modal></Modal>": {
-    "prefix": "Modal",
+    "prefix": "<Modal",
     "body": [
-      "<Modal bg={'#0003'} center active={[true,toggleModal]} blur={1} transition={0.3}>$1</Modal>"
+      "<Modal bg={'#0003'} center active={[true, toggleModal, true]} blur={1} transition={0.3}>$1</Modal>"
     ],
     "description": "Modal Component"
   },
