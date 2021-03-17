@@ -9,7 +9,7 @@
 	ac = "!f() { git add . && git c \"$*\"; }; f"
 	ch = checkout -- . 
 	cch = rm -r --cached 
-	v = "!f(){ git tag -a v$1 -m \"$*\" && git push origin v$1; };f"
+	v = "!f(){ git tag -a v$2 -m \"$1\" && git push origin v$2; };f"
 	bs = branch -M main 
 	r = restore .
 	rr = reset --soft HEAD~
@@ -62,5 +62,5 @@
 	nrf = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --public -y --template https://github.com/FernandoTimo/Frontend-Next && git pull origin main && echo \"# Frontend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
 	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --public -y --template https://github.com/FernandoTimo/Backend-Express && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
 	# Aqui agregar web y descripcion a github
-	vv = "!f() { echo \"$1\" >> Release_$2.md && git a $1 && gh release create -t $1 v$2 -F Release_$2.md; }; f"
+	vv = "!f() { mkdir -p \"Releases\" && echo -e \"### Core Changes \n - $2\" >> Releases/Release_$1.md && gh release create -t v$1 v$1 -F Releases/Release_$1.md $3; }; f"
 	nc = "!f() { echo -e \"import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.$1}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;\" >> components/$1.js && echo -e \".Title {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\" >> components/$1.module.css && git a $1 component; }; f"
