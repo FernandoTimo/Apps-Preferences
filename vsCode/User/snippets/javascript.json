@@ -118,10 +118,15 @@
     "body": "res.status(200).json({ok:${1: true}, ${2:data}})",
     "description": "res status json"
   },
+  "Console.log Variable": {
+    "prefix": "clgg",
+    "body": "console.log($1, '${1:var}')",
+    "description": "Console log Variable"
+  },
   "Console.log": {
     "prefix": "clg",
     "body": "console.log('${1:hola mundo}')",
-    "description": "Importar solo el módulo"
+    "description": "Console log "
   },
   "Import From": {
     "prefix": "imp",
