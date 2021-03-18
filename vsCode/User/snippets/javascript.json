@@ -588,10 +588,30 @@
     "body": "const [${3:LocalStorage}, set$3] = useLocalStorage('${1:key}', '${2:value}')",
     "description": "useLocalStorage"
   },
+  "useLocalStorage Documented": {
+    "prefix": "useLS-documented",
+    "body": "const [${3:LocalStorage}, set$3] = useLocalStorage('${1:key(String)}', '${2:value(String)}')",
+    "description": "useLocalStorage Documented"
+  },
   "useSessionStorage": {
     "prefix": "useSS",
     "body": "const [${3:SessionStorage}, set$3] = useSessionStorage('${1:key}', '${2:value}')",
     "description": "useSessionStorage"
+  },
+  "useSessionStorage Documented": {
+    "prefix": "useSS-documented",
+    "body": "const [${3:SessionStorage}, set$3] = useSessionStorage('${1:key(String)}', '${2:value(String)}')",
+    "description": "useSessionStorage Documented"
+  },
+  "useCounter": {
+    "prefix": "useC",
+    "body": "const Counter = useCounter(${1:4286}, ${2:0}, ${3:true}, ${4:14}, ${5:14})",
+    "description": "useCounter"
+  },
+  "useCounter Documented": {
+    "prefix": "useC-documented",
+    "body": "const Counter = useCounter(${1:max(Number)}, ${2:min(Number)}, ${3:start(Boolean)}, ${2:speed(Number)}, ${2:increment(Number)})",
+    "description": "useCounter Documented"
   },
   "Use State": {
     "prefix": "uses",
