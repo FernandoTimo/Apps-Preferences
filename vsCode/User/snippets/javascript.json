@@ -588,6 +588,11 @@
     "body": "const [${3:LocalStorage}, set$3] = useLocalStorage('${1:key}', '${2:value}')",
     "description": "useLocalStorage"
   },
+  "useSessionStorage": {
+    "prefix": "useSS",
+    "body": "const [${3:SessionStorage}, set$3] = useSessionStorage('${1:key}', '${2:value}')",
+    "description": "useSessionStorage"
+  },
   "Use State": {
     "prefix": "uses",
     "body": "const [${1:State}, set${1:State}] = useState($2)",
