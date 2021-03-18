@@ -583,6 +583,11 @@
     ],
     "description": "Create Handler Toggle Function"
   },
+  "useLocalStorage": {
+    "prefix": "useLS",
+    "body": "const [${3:LocalStorage}, set$3] = useLocalStorage('${1:key}', '${2:value}')",
+    "description": "useLocalStorage"
+  },
   "Use State": {
     "prefix": "uses",
     "body": "const [${1:State}, set${1:State}] = useState($2)",
