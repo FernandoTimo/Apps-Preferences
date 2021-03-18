@@ -613,10 +613,20 @@
     "body": "const Counter = useCounter(${1:max(Number)}, ${2:min(Number)}, ${3:start(Boolean)}, ${2:speed(Number)}, ${2:increment(Number)})",
     "description": "useCounter Documented"
   },
-  "Use State": {
-    "prefix": "uses",
+  "UseState": {
+    "prefix": "useS",
     "body": "const [${1:State}, set${1:State}] = useState($2)",
-    "description": "Create useState() hook"
+    "description": "Create useState hook"
+  },
+  "UseEffect": {
+    "prefix": "useE",
+    "body": [
+      "useEffect(() => {",
+      "\t$1",
+      "\treturn () => {}",
+      "}, [$2])",
+    ],
+    "description": "Create useEffect hook"
   },
   "handle Function": {
     "prefix": "hf",
