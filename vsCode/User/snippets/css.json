@@ -42,7 +42,7 @@
   },
   "Font Size": {
     "prefix": "fs",
-    "body": ["font-size: ${1:1.5}vh;", "line-height: ${1:1.5}vh;"],
+    "body": ["font-size: 1.${1:5}vh;", "line-height: 1.${1:5}vh;"],
     "description": "Set Font Size"
   },
   "Backgound": {
