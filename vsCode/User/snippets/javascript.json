@@ -628,9 +628,14 @@
     ],
     "description": "Create useEffect hook"
   },
+  "New Function": {
+    "prefix": "nf",
+    "body": ["const ${1:Function} = ($2) => {", "\t$3", "}"],
+    "description": "Create Function"
+  },
   "handle Function": {
     "prefix": "hf",
-    "body": ["const handler${1:Function} = ($2)=> {", "\t$3", "}"],
+    "body": ["const handler${1:Function} = ($2) => {", "\t$3", "}"],
     "description": "Create handle Function"
   },
   "Component Landscape": {
