@@ -123,6 +123,11 @@
     "body": "flex-direction: column;",
     "description": "Flex direction"
   },
+  "Margin Padding": {
+    "prefix": "mp",
+    "body": ["margin: ${1: 1}vh;", "padding: ${1: 1}vh;"],
+    "description": "Margin + Padding"
+  },
   "Width Height": {
     "prefix": "wh",
     "body": ["width: ${1: 1}vh;", "height: ${1: 1}vh;"],
