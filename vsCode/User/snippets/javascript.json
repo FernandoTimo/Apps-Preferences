@@ -187,6 +187,13 @@
     "body": ["<Footer bg center heigth={5}>$1</Footer>"],
     "description": "Footer Component"
   },
+  "<Emergente></Emergente>": {
+    "prefix": "<Emergente",
+    "body": [
+      "<Emergente child={<${1:Component} />} active={[activeEmergente, toggleEmergente, true]} position={[null, null, null, null]}><button onClick={toggleEmergente}>$1</button></Emergente>"
+    ],
+    "description": "Emergente Component"
+  },
   "<Modal></Modal>": {
     "prefix": "<Modal",
     "body": [
