@@ -538,6 +538,11 @@
     "body": "${1:attr}={${2:valor}}",
     "description": "Create pair attributes values"
   },
+  "Ref Attribute": {
+    "prefix": "ref",
+    "body": "ref={${2:Ref}Ref}",
+    "description": "Ref Attribute"
+  },
   "ClassName Global Attribute": {
     "prefix": "c",
     "body": "className='$1'",
@@ -620,12 +625,7 @@
   },
   "UseEffect": {
     "prefix": "useE",
-    "body": [
-      "useEffect(() => {",
-      "\t$1",
-      "\treturn () => {}",
-      "}, [$2])",
-    ],
+    "body": ["useEffect(() => {", "\t$1", "\treturn () => {}", "}, [$2])"],
     "description": "Create useEffect hook"
   },
   "New Function": {
