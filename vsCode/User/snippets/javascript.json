@@ -190,7 +190,7 @@
   "<Emergente></Emergente>": {
     "prefix": "<Emergente",
     "body": [
-      "<Emergente child={<${1:Component} />} active={[activeEmergente, toggleEmergente, true]} position={[null, null, null, null]}><button onClick={toggleEmergente}>$1</button></Emergente>"
+      "<Emergente child={<${1:Component} />} active={[$1State, toggle$1State, true]} position={[null, null, null, null]}><button onClick={toggle$1State}>$1</button></Emergente>"
     ],
     "description": "Emergente Component"
   },
