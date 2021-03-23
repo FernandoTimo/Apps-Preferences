@@ -588,7 +588,7 @@
   "Toggle State": {
     "prefix": "ts",
     "body": [
-      "const [$1, set$1] = usestate(false)",
+      "const [$1, set$1] = useState(false)",
       "const toggle${1:State} = () => {",
       "\tset$1(!$1)",
       "}"
