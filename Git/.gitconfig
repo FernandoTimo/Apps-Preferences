@@ -46,7 +46,10 @@
 	nlf = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && rm -rf Frontend/.git && echo \"# Frontend\"> Frontend/README.md"
 	nlb = "!git clone https://github.com/FernandoTimo/Backend-Express Backend && rm -rf Backend/.git && echo \"# Backend\"> Backend/README.md"
 	nlp = "!git nf && git nb"
-	# OUPUT - messages
+
+	# 	OUPUT - messages
+
+	cmt = "!f() { echo \"$(tput setaf 8) Por favor, ingresa un mensage para el commit. Ejemplo: git a Cualquier commit c/s comillas \"; };f"
 	hf = "!f() { echo \"$(tput setaf 8) >--     https://github.com/FernandoTimo/$1     --< \"; };f"
 	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
 	msg = "!f() { printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && git h$1 $2; } ; f"
@@ -64,7 +67,7 @@
 
 	# 	FULL - comands
 
-	# crea un commit y guarda los cambios en GitHub. Uso: git a A multi-line commit without quotes
+	# crea un commit y guarda los cambios en GitHub. Uso: git a Cualquier commit c/s comillas
 	a = "!f() { git ac \"$*\" && git pu && git sc; }; f"
 	# crea un repositorio en Git y GitHub con las credenciales y nombre otorgados. Uso: git i F REPOSITORY-NAME 
 	i = "!f() { git validate $1 $2 || ( git nrr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg)}; f"
