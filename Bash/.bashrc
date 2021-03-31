@@ -1,4 +1,5 @@
 alias gs="git s"
 alias ga="git a"
 alias gc="git c"
+alias gac="git ac"
 alias gf="git file"
