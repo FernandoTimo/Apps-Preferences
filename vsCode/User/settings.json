@@ -140,9 +140,20 @@
   "workbench.iconTheme": "material-icon-theme",
   "vscode-graphql.useSchemaFileDefinitions": false,
   "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "color-highlight.languages": [
-    "*"
-  ],
+  "color-highlight.languages": ["*"],
   "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "metals.javaHome": "C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.10.9-hotspot",
+  "metals.enableStripMarginOnTypeFormatting": true,
+  "[scala]": {
+    "editor.defaultFormatter": "scalameta.metals"
+  }
 }
