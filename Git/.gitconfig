@@ -54,7 +54,7 @@
 	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg; }; f"
 
 	# FULL - comands
-
+	# crea un commit y guarda los cambios en GitHub. Uso: git a A multi-line commit without quotes
 	a = "!f() { git ac \"$*\" && git pu && git sc; }; f"
 	# crea un repositorio en Git y GitHub con las credenciales y nombre otorgados ej: git i F REPOSITORY-NAME 
 	i = "!f() { git validate $1 $2 || ( git nrr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg)}; f"
