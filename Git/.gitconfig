@@ -5,6 +5,7 @@
 	name = FernandoTimo
 [alias]
 	s = status
+	cq = commit -m
 	c = "!f() { git commit -m \"$*\"; }; f"
 	ac = "!f() { git add . && git c \"$*\"; }; f"
 	ch = checkout -- . 
