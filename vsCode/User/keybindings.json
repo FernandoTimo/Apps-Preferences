@@ -90,5 +90,9 @@
   {
     "key": "ctrl+k s",
     "command": "-saveAll"
+  },
+  {
+    "key": "ctrl+alt+w",
+    "command": "workbench.action.closeOtherEditors"
   }
 ]
