@@ -1,4 +1,5 @@
 # GIT
+
 # Show file status
 alias gs="git s"
 # Add all files
@@ -9,4 +10,5 @@ alias gc="git c"
 alias gac="git ac"
 # Remove cache 
 alias gcch="git cch"
+# Open .gitconfig global file
 alias gf="git file"
