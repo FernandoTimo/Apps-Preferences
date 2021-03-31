@@ -12,3 +12,11 @@ alias gac="git ac"
 alias gcch="git cch"
 # Open .gitconfig global file
 alias gf="git file"
+
+
+# SCALA
+
+# Create scala worksheet
+function snw() { 
+  echo "println(\"WorkSheet created!\")" >> $1.worksheet.sc 
+}
