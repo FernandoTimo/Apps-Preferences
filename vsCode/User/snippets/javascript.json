@@ -547,7 +547,7 @@
   },
   "Ref Attribute": {
     "prefix": "ref",
-    "body": "ref={${2:Ref}Ref}",
+    "body": "ref={ref${1:Ref}}",
     "description": "Ref Attribute"
   },
   "ClassName Global Attribute": {
@@ -637,7 +637,7 @@
   },
   "useRef": {
     "prefix": "useR",
-    "body": ["const ${1:Ref}Ref = useRef()"],
+    "body": ["const ref${1:Ref} = useRef()"],
     "description": "Create useRef hook"
   },
   "New Function": {
