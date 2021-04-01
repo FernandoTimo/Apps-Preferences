@@ -155,5 +155,15 @@
   "metals.enableStripMarginOnTypeFormatting": true,
   "[scala]": {
     "editor.defaultFormatter": "scalameta.metals"
+  },
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "python.terminal.executeInFileDir": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
   }
 }
