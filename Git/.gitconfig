@@ -42,9 +42,10 @@
 	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
 	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
 	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
+
 	# NEW - local repos 
-	nlf = "!git clone https://github.com/FernandoTimo/Frontend-Next Frontend && rm -rf Frontend/.git && echo \"# Frontend\"> Frontend/README.md"
-	nlb = "!git clone https://github.com/FernandoTimo/Backend-Express Backend && rm -rf Backend/.git && echo \"# Backend\"> Backend/README.md"
+	nlf = "!git clone https://github.com/FernandoTimo/Frontend-Next.js Frontend && rm -rf Frontend/.git && echo \"# Frontend\"> Frontend/README.md"
+	nlb = "!git clone https://github.com/FernandoTimo/Backend-Express.js Backend && rm -rf Backend/.git && echo \"# Backend\"> Backend/README.md"
 	nlp = "!git nf && git nb"
 
 	# 	OUPUT - messages
