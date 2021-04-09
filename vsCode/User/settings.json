@@ -21,10 +21,21 @@
     "project": "intellij",
     "Bash": "Guard",
     "GitHub": "GitHub",
+    "globalStorage": "archive",
     "github": "GitHub",
+    "vsCode": "vscode",
+    "User": "vscode",
     "Releases": "GitHub",
+    "snippets": "json",
+    "workspaceStorage": "dump",
     "target": "intellij",
+    "Wacom": "custom",
     "null": "intellij"
+  },
+  "material-icon-theme.files.associations": {
+    "*.vscdb": "document",
+    "*.backup": "document",
+    "*.wacomprefs": "settings"
   },
   "editor.fontFamily": "Cascadia Code",
   "editor.fontLigatures": true,
