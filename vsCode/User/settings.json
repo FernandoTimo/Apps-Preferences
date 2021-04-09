@@ -14,10 +14,15 @@
     "titleBar": "darken"
   },
   "material-icon-theme.folders.associations": {
+    "Photoshop": "Review",
     "Coreldraw": "Mappings",
     "Git": "Git",
     "main": "api",
     "project": "intellij",
+    "Bash": "Guard",
+    "GitHub": "GitHub",
+    "github": "GitHub",
+    "Releases": "GitHub",
     "target": "intellij",
     "null": "intellij"
   },
