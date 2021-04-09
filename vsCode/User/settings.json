@@ -14,6 +14,8 @@
     "titleBar": "darken"
   },
   "material-icon-theme.folders.associations": {
+    "Coreldraw": "Mappings",
+    "Git": "Git",
     "main": "api",
     "project": "intellij",
     "target": "intellij",
