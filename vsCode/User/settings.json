@@ -38,6 +38,7 @@
     "null": "batch"
   },
   "material-icon-theme.files.associations": {
+    ".deployment": "azure",
     "*.vscdb": "document",
     "*.backup": "document",
     "*.wacomprefs": "settings"
