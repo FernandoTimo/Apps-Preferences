@@ -14,6 +14,31 @@
     "body": ["Revolver.settings"],
     "description": "Revolver settings"
   },
+  "Enable plugins": {
+    "prefix": "enablePlugins",
+    "body": ["enablePlugins(JavaAppPackaging)"],
+    "description": "Enable plugins"
+  },
+  "revolve plugins": {
+    "prefix": "_revolver",
+    "body": ["addSbtPlugin(\"io.spray\" % \"sbt-revolver\" % \"0.9.1\")"],
+    "description": "revolve plugins"
+  },
+  "packager plugins": {
+    "prefix": "_packager",
+    "body": [
+      "addSbtPlugin(\"com.typesafe.sbt\" % \"sbt-native-packager\" % \"1.3.4\")"
+    ],
+    "description": "packager plugins"
+  },
+  "plugins": {
+    "prefix": "_",
+    "body": [
+      "addSbtPlugin(\"io.spray\" % \"sbt-revolver\" % \"0.9.1\")",
+      "addSbtPlugin(\"com.typesafe.sbt\" % \"sbt-native-packager\" % \"1.3.4\")"
+    ],
+    "description": "revolve plugins"
+  },
   "sangria dependecies": {
     "prefix": ".sangria",
     "body": ["\"org.sangria-graphql\" %% \"sangria\" % \"2.0.1\","],
