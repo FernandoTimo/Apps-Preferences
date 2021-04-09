@@ -18,7 +18,6 @@
     "Coreldraw": "Mappings",
     "Git": "Git",
     "main": "api",
-    "project": "intellij",
     "Bash": "Guard",
     "GitHub": "GitHub",
     "globalStorage": "archive",
@@ -28,9 +27,15 @@
     "Releases": "GitHub",
     "snippets": "json",
     "workspaceStorage": "dump",
-    "target": "intellij",
     "Wacom": "custom",
-    "null": "intellij"
+    "context": "global",
+    "heads": "mjml",
+    "project": "batch",
+    "target": "batch",
+    ".next": "batch",
+    ".vercel": "batch",
+    "sockets": "class",
+    "null": "batch"
   },
   "material-icon-theme.files.associations": {
     "*.vscdb": "document",
