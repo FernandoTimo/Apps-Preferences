@@ -198,5 +198,7 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.python",
     "editor.tabSize": 2
-  }
+  },
+  "metals.scalafmtConfigPath": "scalafmt.conf",
+  "vscodeGoogleTranslate.preferredLanguage": "Spanish"
 }

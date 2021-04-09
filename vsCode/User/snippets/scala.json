@@ -8,5 +8,91 @@
     "prefix": "clg",
     "body": ["println(s\"$1\");"],
     "description": "Consola"
+  },
+  "Revolver settings": {
+    "prefix": "Revolver",
+    "body": ["Revolver.settings"],
+    "description": "Revolver settings"
+  },
+  "sangria dependecies": {
+    "prefix": ".sangria",
+    "body": ["\"org.sangria-graphql\" %% \"sangria\" % \"2.0.1\","],
+    "description": "sangria dependecies"
+  },
+  "sangria-slowlog dependecies": {
+    "prefix": ".sangria-slowlog",
+    "body": ["\"org.sangria-graphql\" %% \"sangria-slowlog\" % \"2.0.1\","],
+    "description": "sangria-slowlog dependecies"
+  },
+  "sangria-circe dependecies": {
+    "prefix": ".sangria-circe",
+    "body": ["\"org.sangria-graphql\" %% \"sangria-circe\" % \"1.3.1\","],
+    "description": "akka dependecies"
+  },
+  "sangria-akka-streams dependecies": {
+    "prefix": ".sangria-akka-streams",
+    "body": [
+      "\"org.sangria-graphql\" %% \"sangria-akka-streams\" % \"1.0.0\","
+    ],
+    "description": "sangria-akka-streams dependecies"
+  },
+  "akka dependecies": {
+    "prefix": ".akka",
+    "body": [
+      "\"com.typesafe.akka\" %% \"akka-http\" % \"10.2.1\",",
+      "\"com.typesafe.akka\" %% \"akka-actor\" % \"2.6.10\",",
+      "\"com.typesafe.akka\" %% \"akka-stream\" % \"2.6.10\","
+    ],
+    "description": "akka dependecies"
+  },
+  "circe dependecies": {
+    "prefix": ".circe",
+    "body": [
+      "\"io.circe\" %% \"circe-core\" % \"0.13.0\",",
+      "\"io.circe\" %% \"circe-parser\" % \"0.13.0\",",
+      "\"io.circe\" %% \"circe-optics\" % \"0.13.0\","
+    ],
+    "description": "circe dependecies"
+  },
+  "akka-circe dependecies": {
+    "prefix": ".akka-circe",
+    "body": ["\"de.heikoseeberger\" %% \"akka-http-circe\" % \"1.35.0\","],
+    "description": "akka-circe dependecies"
+  },
+  "scala-test dependecies": {
+    "prefix": ".scala-test",
+    "body": ["\"org.scalatest\" %% \"scalatest\" % \"3.0.8\" % Test,"],
+    "description": "scala-test dependecies"
+  },
+  "library dependecies": {
+    "prefix": ".",
+    "body": [
+      "\"org.sangria-graphql\" %% \"sangria\" % \"2.0.1\",",
+      "\"org.sangria-graphql\" %% \"sangria-slowlog\" % \"2.0.1\",",
+      "\"org.sangria-graphql\" %% \"sangria-circe\" % \"1.3.1\",\n",
+      "\"com.typesafe.akka\" %% \"akka-http\" % \"10.2.1\",",
+      "\"com.typesafe.akka\" %% \"akka-actor\" % \"2.6.10\",",
+      "\"com.typesafe.akka\" %% \"akka-stream\" % \"2.6.10\",",
+      "\"de.heikoseeberger\" %% \"akka-http-circe\" % \"1.35.0\",\n",
+      "\"io.circe\" %% \"circe-core\" % \"0.13.0\",",
+      "\"io.circe\" %% \"circe-parser\" % \"0.13.0\",",
+      "\"io.circe\" %% \"circe-optics\" % \"0.13.0\",\n",
+      "\"org.scalatest\" %% \"scalatest\" % \"3.0.8\" % Test,"
+    ],
+    "description": "library dependecies"
+  },
+  "SBT init": {
+    "prefix": "!",
+    "body": [
+      "name:= \"${1:app-name}\"",
+      "version:= \"${2:0.0.1}\"",
+      "description:= \"${3:App description}\"",
+      "scalaVersion:= \"2.13.3\"",
+      "scalacOptions ++= Seq(\"-deprecation\", \"-feature\")\n",
+      "libraryDependencies ++= Seq(",
+      "\t$5",
+      ")"
+    ],
+    "description": "Consola"
   }
 }
