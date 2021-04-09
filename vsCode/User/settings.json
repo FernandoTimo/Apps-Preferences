@@ -13,6 +13,12 @@
     "statusBar": "darken",
     "titleBar": "darken"
   },
+  "material-icon-theme.folders.associations": {
+    "main": "api",
+    "project": "intellij",
+    "target": "intellij",
+    "null": "intellij"
+  },
   "editor.fontFamily": "Cascadia Code",
   "editor.fontLigatures": true,
   "peacock.favoriteColors": [
@@ -163,7 +169,10 @@
     }
   ],
   "python.terminal.executeInFileDir": true,
+  "python.formatting.provider": "autopep8",
+
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.tabSize": 2
   }
 }

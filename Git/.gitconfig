@@ -55,7 +55,7 @@
 	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
 	msg = "!f() { printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && git h$1 $2; } ; f"
 	validate = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") }; f"
-	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg; }; f"
+	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo -e \"desktop.ini \n .vscode\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg; }; f"
 
 	# GH - cli
 	gh = "!f() { bash ~/gh$1.sh; };f"
