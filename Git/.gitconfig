@@ -46,7 +46,7 @@
 	# NEW - local repos 
 	nlf = "!git clone https://github.com/FernandoTimo/Frontend-Next.js Frontend && rm -rf Frontend/.git && echo \"# Frontend\"> Frontend/README.md"
 	nlb = "!git clone https://github.com/FernandoTimo/Backend-Express.js Backend && rm -rf Backend/.git && echo \"# Backend\"> Backend/README.md"
-	nlp = "!git nf && git nb"
+	nla = "!git nlf && git nlb"
 
 	# 	OUPUT - messages
 
@@ -57,15 +57,18 @@
 	validate = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") }; f"
 	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo -e \"desktop.ini \n .vscode\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg; }; f"
 
-	# GH - cli
+	# GitHub - cli
 	gh = "!f() { bash ~/gh$1.sh; };f"
 	nrr = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
 	nrf = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --public -y --template https://github.com/FernandoTimo/Frontend-Next && git pull origin main && echo \"# Frontend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
 	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --public -y --template https://github.com/FernandoTimo/Backend-Express && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
 	# Aqui agregar web y descripcion a github
 	vv = "!f() { mkdir -p \"Releases\" && echo -e \"### Core Changes \n - $2\" >> Releases/Release_$1.md && gh release create -t v$1 v$1 -F Releases/Release_$1.md $3; }; f"
-	nc = "!f() { [ -z $2 ] && dir=components || dir=components/$2; mkdir -p $dir && echo -e \"import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.$1}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;\" >> $dir/$1.js && echo -e \".$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\" >> $dir/$1.module.css && git a $1 component; }; f"
-
+	# --- uso: git nc Componente Directorio?
+	nc = "!f() { [ -z $2 ] && dir=components || dir=components/$2; mkdir -p $dir && echo -e \"import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.$1}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;\" >> $dir/$1.component.js && echo -e \".$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\" >> $dir/$1.module.css; }; f"
+	# crea una nueva pagina para next.js, uso: git np Pagina Directorio
+	np = "!f() { echo -e \"import style from 'styles/pages/$1.module.css';\nimport Head_Main from 'heads/Main.head';\nimport { Section, Body, Content } from 'components/Resources/Timoideas';\nexport default function $1() {\n\treturn (\n\t\t<>\n\t\t\t<Head_Main />\n\t\t\t<Body>\n\t\t\t\t<Section>\n\t\t\t\t\t<Content center>\n\t\t\t\t\t\t<h1 className={style.$1}>$1</h1>\n\t\t\t\t\t</Content>\n\t\t\t\t</Section>\n\t\t\t</Body>\n\t\t</>\n\t);\n}\" >> pages/$1.js && echo -e \".$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\" >> styles/pages/$1.module.css; }; f"
+	
 	# 	FULL - comands
 
 	# crea un commit y guarda los cambios en GitHub. Uso: git a Cualquier commit c/s comillas

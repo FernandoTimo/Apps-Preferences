@@ -35,9 +35,32 @@
     ".next": "batch",
     ".vercel": "batch",
     "sockets": "class",
+    "fetch": "temp",
+    "timoideas": "home",
     "null": "batch"
   },
   "material-icon-theme.files.associations": {
+    "Dark.json": "replit",
+    "Ligth.json": "svg",
+    "*.middleware.js": "sentry",
+    "Timoideas.components.js": "moonscript",
+    "*.component.js": "react",
+    "*.head.js": "gemini",
+    "*.module.css": "react_ts",
+    "*.fetch.js": "search",
+    "*.context.js": "restql",
+    "*.hook.js": "adonis",
+    "database.js": "database",
+    "app.js": "smarty",
+    "next.config.js": "javascript-map",
+    "index.js": "puppet",
+    "*.controller.js": "fastlane",
+    "*.schema.js": "mint",
+    "_app.js": "nim",
+    "404.js": "http",
+    "Timoideas.js": "moonscript",
+    "server.js": "vite",
+    "*.socket.js": "stryker",
     ".deployment": "azure",
     "*.vscdb": "document",
     "*.backup": "document",
@@ -169,7 +192,6 @@
   ],
   "workbench.iconTheme": "material-icon-theme",
   "vscode-graphql.useSchemaFileDefinitions": false,
-  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
   "color-highlight.languages": ["*"],
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -181,17 +203,9 @@
     "**/.metals": true,
     "**/.ammonite": true
   },
-  "metals.javaHome": "C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.10.9-hotspot",
-  "metals.enableStripMarginOnTypeFormatting": true,
-  "[scala]": {
-    "editor.defaultFormatter": "scalameta.metals"
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
   "python.terminal.executeInFileDir": true,
   "python.formatting.provider": "autopep8",
 
@@ -199,6 +213,14 @@
     "editor.defaultFormatter": "ms-python.python",
     "editor.tabSize": 2
   },
-  "metals.scalafmtConfigPath": "scalafmt.conf",
-  "vscodeGoogleTranslate.preferredLanguage": "Spanish"
+  "workbench.colorCustomizations": {
+    "[Timoideas - Esmeralda Soft]": {
+      "tab.activeBackground": "#16463e",
+      "tab.activeForeground": "#ffc400",
+      "tab.hoverBackground": "#0f2c27"
+    }
+  },
+  "vscodeGoogleTranslate.preferredLanguage": "Spanish",
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.windows": "Git Bash"
 }

@@ -94,5 +94,9 @@
   {
     "key": "ctrl+alt+w",
     "command": "workbench.action.closeOtherEditors"
+  },
+  {
+    "key": "ctrl+alt+enter",
+    "command": "python.execInTerminal"
   }
 ]
