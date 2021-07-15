@@ -27,12 +27,8 @@
     "when": "terminalFocus && terminalProcessSupported"
   },
   {
-    "key": "ctrl+shift+oem_3",
-    "command": "workbench.action.terminal.kill"
-  },
-  {
     "key": "shift+alt+oem_3",
-    "command": "terminalTabs.createNamedTerminal"
+    "command": "workbench.action.terminal.kill"
   },
   {
     "key": "ctrl+alt+oem_102",
@@ -98,5 +94,10 @@
   {
     "key": "ctrl+alt+enter",
     "command": "python.execInTerminal"
+  },
+  {
+    "key": "alt+delete",
+    "command": "-notebook.cell.clearOutputs",
+    "when": "notebookCellEditable && notebookCellHasOutputs && notebookEditable && notebookEditorFocused && !inputFocus"
   }
 ]

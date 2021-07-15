@@ -41,6 +41,7 @@
     ],
     "description": "Create a CRUD routes with Controllers"
   },
+
   "New FULL Controllers": {
     "prefix": "nfc",
     "body": [
@@ -189,18 +190,28 @@
   },
   "<Section></Section>": {
     "prefix": "Section",
-    "body": ["<Section bg size={1}>$1</Section>"],
+    "body": ["<Section show size={1}>$1</Section>"],
     "description": "Section Component"
   },
-  "<Content></Content>": {
+  "Content Component": {
     "prefix": "Content",
-    "body": ["<Content bg center flex={1}>$1</Content>"],
+    "body": ["<Content show center flex={1}>$1</Content>"],
     "description": "Content Component"
   },
-  "<Content>.</Content>": {
+  "Content ClassName Component": {
     "prefix": ".Content",
-    "body": ["<Content bg center flex={1} className={style.$1}>$2</Content>"],
+    "body": ["<Content show center flex={1} className={style.$1}>$2</Content>"],
     "description": "Content Component"
+  },
+  "Grid Component": {
+    "prefix": "Grid",
+    "body": ["<Grid center gap={2} columns={[2, 5]} rows={[2, 5]}>$1</Grid>"],
+    "description": "Grid Component"
+  },
+  "Grid ClassName Component": {
+    "prefix": ".Grid",
+    "body": ["<Grid center gap={2} columns={[2, 5]} rows={[2, 5]} className={style.$1}>$2</Grid>"],
+    "description": "Grid Component"
   },
   "<Header></Header>": {
     "prefix": "Header",
@@ -465,23 +476,31 @@
     "prefix": "nff",
     "body": [
       "import fetch from 'node-fetch';",
-      "const API = process.env.NEXT_PUBLIC_API;",
-      "export const GET_${1:Fetcher} = (url = '/') =>",
-      "\tfetch(API + url, { method: 'GET' })",
-      "\t\t.then((res) => res.json())",
-      "\t\t.catch(({ message }) => console.log(message));",
-      "export const POST_${1:Fetcher} = (url) =>",
-      "\tfetch(API + url, { method: 'POST' })",
-      "\t\t.then((res) => res.json())",
-      ".catch(({ message }) => console.log(message));",
-      "export const PUT_${1:Fetcher} = (url) =>",
-      "\tfetch(API + url, { method: 'PUT' })",
-      "\t\t.then((res) => res.json())",
-      "\t\t.catch(({ message }) => console.log(message));",
-      "export const DELETE_${1:Fetcher} = (url) =>",
-      "\tfetch(API + url, { method: 'DELETE' })",
-      "\t\t.then((res) => res.json())",
-      "\t\t.catch(({ message }) => console.log(message));"
+      "const BACKEND_API = process.env.NEXT_PUBLIC_BACKEND_API;",
+      "export const GET_${1:Fetcher} = (url, token) =>",
+      "\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) => res.json());",
+      "export const POST_${1:Fetcher} = (url, data) =>",
+      "\tfetch(BACKEND_API + url, {",
+      "\t\tmethod: 'POST',",     
+      "\t\tbody: JSON.stringify(data),",     
+      "\t\theaders: {",     
+      "\t\t\t'Content-Type': 'application/json',",     
+      "\t\t},",     
+      "\t}).then((res) => res.json());",     
+      "export const PUT_${1:Fetcher} = (url, data, token) =>",
+      "\tfetch(BACKEND_API + url, {",
+      "\t\tmethod: 'PUT',",     
+      "\t\tbody: JSON.stringify(data),",     
+      "\t\theaders: {",     
+      "\t\t\t'Content-Type': 'application/json',",     
+      "\t\t\tauth: token,",     
+      "\t\t},",     
+      "\t}).then((res) => res.json());",             
+      "export const DELETE_${1:Fetcher} = (url, token) =>",
+      "\tfetch(BACKEND_API + url, {",
+      "\t\tmethod: 'DELETE',",  
+      "\t\theaders: { auth: token },",  
+      "\t}).then((res) => res.json());",
     ],
     "description": "Fetch full methods"
   },
@@ -717,6 +736,11 @@
     "prefix": "useR",
     "body": ["const ref${1:Ref} = useRef()"],
     "description": "Create useRef hook"
+  },
+  "useSWR": {
+    "prefix": "useR",
+    "body": ["const { data,error } = useSWR('/$1', ${2:GET_Data})"],
+    "description": "Create useSWR hook"
   },
   "New Function": {
     "prefix": "nf",

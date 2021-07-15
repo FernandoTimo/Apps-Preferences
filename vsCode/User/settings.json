@@ -222,5 +222,7 @@
   },
   "vscodeGoogleTranslate.preferredLanguage": "Spanish",
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.defaultProfile.windows": "Git Bash"
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "tabnine.experimentalAutoImports": true,
+  "workbench.statusBar.visible": false
 }
