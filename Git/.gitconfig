@@ -59,9 +59,9 @@
 
 	# GitHub - cli
 	gh = "!f() { bash ~/gh$1.sh; };f"
-	nrr = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
-	nrf = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --public -y --template https://github.com/FernandoTimo/Frontend-Next && git pull origin main && echo \"# Frontend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
-	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --public -y --template https://github.com/FernandoTimo/Backend-Express && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
+	nrr = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 --public -d $2 -h http://Timoideas.com --public -y && git rs $1 $2 ; }; f"
+	nrf = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 --public -d $2 -y --template https://github.com/FernandoTimo/Frontend-Next && git pull origin main && echo \"# Frontend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
+	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 -y --template https://github.com/FernandoTimo/Backend-Express && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
 	# Aqui agregar web y descripcion a github
 	vv = "!f() { mkdir -p \"Releases\" && echo -e \"### Core Changes \n - $2\" >> Releases/Release_$1.md && gh release create -t v$1 v$1 -F Releases/Release_$1.md $3; }; f"
 	
@@ -72,4 +72,4 @@
 	# crea un repositorio en Git y GitHub con las credenciales y nombre otorgados. Uso: git i F REPOSITORY-NAME 
 	i = "!f() { git validate $1 $2 || ( git nrr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg $1 $2)}; f"
 	# crea un repositorio completo con Backend-Express y Frontend-Next para Git y GitHub. Uso: git ip F APP-NAME
-	ip = "!f() { (git nla && git i $1 $2) } ; f"
+	ip = "!f() { (git nla && git i $1 $2) } ; f"https://username@github.com/username/repo_name

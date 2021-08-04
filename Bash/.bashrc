@@ -12,7 +12,10 @@ alias gac="git ac"
 alias gcch="git cch"
 # Open .gitconfig global file
 alias gf="git file"
-
+# Open .bashrc global file
+alias bash="code ~/.bashrc" 
+# Create a ngrok server
+alias ls="~/ngrok http $1" 
 
 # SCALA
 
@@ -39,7 +42,28 @@ function nc() {
   fi
   mkdir -p $dir;
   echo -e "import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.$1}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;" >> $dir/$1.component.js ;
-  echo -e ".$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}" >> $dir/$1.module.css;  
+  echo -e "/* Phone RD */\n.$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}" >> $dir/$1.module.css;  
+}
+# Create a Context file.
+function nctx() {
+  dir="context"
+  mkdir -p $dir;
+  echo -e "
+import { createContext, useState } from 'react';
+const _${1^}} = createContext();
+export const _$1_ = ({ children }) => {
+  const [$1, set$1] = useState(true);
+  const toggle$1 = () => {
+    set$1(!$1);
+  };
+  return (
+    <_${1^}}.Provider value={{ $1, toggle$1 }}>
+      {children}
+    </_${1^}}.Provider>
+  );
+};
+export default _${1^}};  
+  " >> $dir/$1.context.js ;  
 }
 
 # Create a Next page with custom Head. JS and CSS
@@ -52,7 +76,7 @@ function np() {
   mkdir -p styles/$dir;
   mkdir -p components/$1;
   echo -e "import style from 'styles/pages/$1.module.css';\nimport Head from 'heads/${1^}.head';\nimport { Section, Body, Content } from 'components/timoideas/Timoideas.components';\nimport ${1^} from 'components/$1/${1^}.component';\nexport default function ${1^}() {\n\treturn (\n\t\t<>\n\t\t\t<Head />\n\t\t\t<Body>\n\t\t\t\t<Section>\n\t\t\t\t\t<Content center>\n\t\t\t\t\t\t<${1^} />\n\t\t\t\t\t</Content>\n\t\t\t\t</Section>\n\t\t\t</Body>\n\t\t</>\n\t);\n}" >> $dir/$1.js;
-  echo -e ".$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}" >> styles/$dir/$1.module.css;
+  echo -e "/* Phone RD */\n.$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}" >> styles/$dir/$1.module.css;
 }
 
 # Create a Head Component
@@ -77,7 +101,7 @@ function nms() {
 function nr() {
   dir="src/router";
   mkdir -p $dir;
-  echo -e "import { Router } from 'express';\nconst routes = Router();\n\n// CONTROLLERS\nimport {\n\tGET_$1s,\n\tGET_$1,\n\tPOST_$1,\n\tPUT_$1,\n\tDELETE_$1,\n} from '../controllers/$1.controller';\n\n// MIDDLEWARES\n\n// -- Global Routes\n\nroutes.route('/').get(GET_$1s);\nroutes\n\t.route('/:id')\n\t.get(GET_$1)\n\t.post(POST_$1)\n\t.put(PUT_$1)\n\t.delete(DELETE_$1);\n\nexport default routes;\n" >> $dir/$1.routes.js;
+  echo -e "import { Router } from 'express';\nconst  = Router();\n\n// CONTROLLERS\nimport {\n\tGET_$1s,\n\tGET_$1,\n\tPOST_$1,\n\tPUT_$1,\n\tDELETE_$1,\n} from '../controllers/$1.controller';\n\n// MIDDLEWARES\n\n// -- Global Routes\n\nroutes.route('/').get(GET_$1s);\nroutes\n\t.route('/:id')\n\t.get(GET_$1)\n\t.post(POST_$1)\n\t.put(PUT_$1)\n\t.delete(DELETE_$1);\n\nexport default routes;\n" >> $dir/$1.routes.js;
   sed -i "/ROUTES/a import $1 from './$1.routes';\nroutes.use('/$1', $1);" src/router/index.routes.js
 }
 # Create a Controller CRUD
@@ -89,7 +113,48 @@ function nct() {
 # Create a Full Backend CRUD
 function ncb() {
   nms $1;
-  nct $1
-  nr $1
+  nct $1;
+  nr $1;
 }
-
+# Create a JSON file
+function njson() {
+  dir="public/json";
+  mkdir -p $dir;
+  echo -e "{\n\t\n}" >> $dir/$1.json;
+}
+# Create a SVG file
+function nsvg() {
+  dir="public/svg";
+  mkdir -p $dir;
+  echo -e "" >> $dir/$1.svg;
+}
+# Create a React Native Proyect
+function nrn() {
+  npx react-native init $1;
+  mv $1 Phone;
+  git clone https://github.com/FernandoTimo/Frontend-Native.git RN
+  rm -rf RN/{.git,.gitignore}
+  cp -R RN/. Phone
+  rm -rf RN
+  cd Phone;
+  npx react-native link;
+  npm i react-native-svg @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/bottom-tabs;
+  npm i react-native-svg-transformer -D;
+}
+# Create a React Native Component
+function nnc() { 
+  if [[ -z $2 ]]
+  then
+   dir="src/components"
+  else
+   dir="src/components/$2"
+  fi
+  mkdir -p $dir;
+  echo -e "import {StyleSheet} from 'react-native';\n\nexport default StyleSheet.create({\n\t$1: {\n\t\tflex: 1,\n\t\tdisplay: 'flex',\n\t\tjustifyContent: 'center',\n\t\talignItems: 'center',\n\t},\n\tTitle: {\n\t\tfontFamily: 'T1',\n\t\tfontSize: 40,\n\t\tcolor: '#000',\n\t}\n});" >> $dir/$1.styles.js;  
+  echo -e "import style from './$1.styles.js';\nimport React from 'react';\nimport {Text, View} from 'react-native';\nimport {Body} from './src/components/timoideas/Timoideas.component';\n\nexport default function $1() {\n\treturn (\n\t\t<Screen>\t\t\t<View style={style.$1}>\n\t\t\t\t<Text style={style.Title}>$1</Text>\n\t\t\t</View>\n\t\t</Screen>\n\t);\n}" >> $dir/$1.component.js ;
+}
+# Run Android Studio Emulator
+function re() {
+  cd ~/AppData/Local/Android/Sdk/emulator;
+  ./emulator -avd Timoideas;
+}
