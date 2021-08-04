@@ -40,6 +40,11 @@
     "body": ["transform: scale(${1:1.1});"],
     "description": "Set Transform Scale"
   },
+  "Transform Translate": {
+    "prefix": "tt",
+    "body": ["transform: translate(-50%, -50%);"],
+    "description": "Set Transform Translate"
+  },
   "Font Size": {
     "prefix": "fs",
     "body": ["font-size: 1.${1:5}vh;", "line-height: 1.${1:5}vh;"],
@@ -110,7 +115,7 @@
   },
   "Shadow": {
     "prefix": "bs",
-    "body": "box-shadow: 0 0 1vh #${1:3333};",
+    "body": "box-shadow: var(--shadow);",
     "description": "Shadow"
   },
   "Flex": {

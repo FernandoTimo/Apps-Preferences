@@ -99,5 +99,9 @@
     "key": "alt+delete",
     "command": "-notebook.cell.clearOutputs",
     "when": "notebookCellEditable && notebookCellHasOutputs && notebookEditable && notebookEditorFocused && !inputFocus"
+  },
+  {
+    "key": "shift+alt+p",
+    "command": "polacode.activate"
   }
 ]

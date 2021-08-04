@@ -14,8 +14,10 @@
     "titleBar": "darken"
   },
   "material-icon-theme.folders.associations": {
+    "Phone": "Mobile",
     "Photoshop": "Review",
     "Coreldraw": "Mappings",
+    "screens": "mobile",
     "Git": "Git",
     "main": "api",
     "Bash": "Guard",
@@ -46,7 +48,9 @@
     "Timoideas.components.js": "moonscript",
     "*.component.js": "react",
     "*.head.js": "gemini",
+    ".svgrrc": "nim",
     "*.module.css": "react_ts",
+    "*.styles.js": "react_ts",
     "*.fetch.js": "search",
     "*.context.js": "restql",
     "*.hook.js": "adonis",
@@ -198,6 +202,7 @@
   "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": { "editor.autoClosingBrackets": "always" },
   "files.watcherExclude": {
     "**/.bloop": true,
     "**/.metals": true,
@@ -223,6 +228,16 @@
   "vscodeGoogleTranslate.preferredLanguage": "Spanish",
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "tabnine.experimentalAutoImports": true,
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "polacode.shadow": "rgba(0, 0, 0, 0.55) 0px 20px 68px",
+  "polacode.transparentBackground": true,
+  "colorize.languages": ["typescript", "javascript", "css", "scss"],
+  "colorize.include": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "**/*.styl",
+    "**/*.js"
+  ]
 }

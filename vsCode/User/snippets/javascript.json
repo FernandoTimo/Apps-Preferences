@@ -178,6 +178,13 @@
     ],
     "description": "Crear una Mutacion"
   },
+
+  "OS Platform": {
+    "prefix": "OS",
+    "body": "Platform.OS === 'ios' ? '1' : '0'",
+    "description": "OS Platform"
+  },
+  
   "Import SRW HOOK": {
     "prefix": "isrw",
     "body": "import useSWR from 'swr'",
@@ -236,6 +243,84 @@
       "<Modal bg={'#0003'} center active={[true, toggleModal, true]} blur={1} transition={0.3}>$1</Modal>"
     ],
     "description": "Modal Component"
+  },
+  "View": {
+    "prefix": "View",
+    "body": ["<View>$1</View>"],
+    "description": "View ClassName"
+  },
+  "View Style": {
+    "prefix": ".View",
+    "body": ["<View style={style.$1}>$2</View>"],
+    "description": "View Style"
+  },
+  "Text": {
+    "prefix": "Text",
+    "body": ["<Text>$1</Text>"],
+    "description": "Text ClassName"
+  },
+  "Text Style": {
+    "prefix": ".Text",
+    "body": ["<Text style={style.$1}>$2</Text>"],
+    "description": "Text Style"
+  },
+  "FlatList": {
+    "prefix": "FlatList",
+    "body": [
+      "<FlatList$3",
+      "\tdata={${1:Array}}",
+      "\trenderItem={({item}) => <Text>{item.${2:key}}</Text>}",
+      "\tkeyExtractor={item => item._id}",
+      "/>"],
+    "description": "FlatList"
+  },
+  "FlatList Style": {
+    "prefix": ".FlatList",
+    "body": [
+      "<FlatList$3",
+      "\tstyle={style.${1:FlatList}}",
+      "\tdata={${2:Array}}",
+      "\trenderItem={({item}) => <Text>{item.${3:key}}</Text>}",
+      "\tkeyExtractor={item => item._id}",
+      "/>"],
+    "description": "FlatList Style"
+  },
+  "TextInput": {
+    "prefix": "TextInput",
+    "body": [
+      "<TextInput$3",
+      "\tonChangeText={handler${1:Change}}",
+      "\tkeyboardType='default'",
+      "\tplaceholder={'Placeholder...'}",
+      "/>"],
+    "description": "TextInput"
+  },
+  "TextInput Style": {
+    "prefix": ".TextInput",
+    "body": [
+      "<TextInput$3",
+      "\tstyle={style.${1:Input}}",
+      "\tonChangeText={handler${1:Change}}",
+      "\tkeyboardType='default'",
+      "\tplaceholder={'Placeholder...'}",
+      "/>"],
+    "description": "TextInput Style"
+  },
+  "TouchableHighlight": {
+    "prefix": "TouchableHighlight",
+    "body": [
+      "<TouchableHighlight$3 onPress={handler${1:Press}}>",
+      "\t<Text>$1</Text>",
+      "</TouchableHighlight>"],
+    "description": "TouchableHighlight"
+  },
+  "TouchableHighlight Style": {
+    "prefix": ".TouchableHighlight",
+    "body": [
+      "<TouchableHighlight$3 style={style.${1:Button}} onPress={handler${2:Press}}>",
+      "\t<Text>$1</Text>",
+      "</TouchableHighlight>"],
+    "description": "TouchableHighlight Style"
   },
   "Div": {
     "prefix": "div",
@@ -652,6 +737,11 @@
     "body": "className='$1'",
     "description": "ClassName Global Attribute"
   },
+  "Style Attribute": {
+    "prefix": "ss",
+    "body": "style={style.$1}",
+    "description": "ClassName Attribute"
+  },
   "ClassName Attribute": {
     "prefix": "cc",
     "body": "className={style.$1}",
@@ -685,6 +775,7 @@
   "Toggle State": {
     "prefix": "ts",
     "body": [
+      "// $1 State",
       "const [$1, set$1] = useState(false)",
       "const toggle${1:State} = () => {",
       "\tset$1(!$1)",
@@ -724,7 +815,7 @@
   },
   "useState": {
     "prefix": "useS",
-    "body": "const [${1:State}, set${1:State}] = useState($2)",
+    "body": ["// $1 State","const [${1:State}, set${1:State}] = useState($2)"],
     "description": "Create useState hook"
   },
   "useEffect": {
@@ -762,9 +853,9 @@
     "body": "<Portrait f={${1:1}}>$2</Portrait>",
     "description": "Create Portrait Component"
   },
-  "Import Theme": {
-    "prefix": "Theme",
-    "body": ["const {Theme, setTheme, isTheme} = useTheme()"],
+  "Import SVG": {
+    "prefix": "isvg",
+    "body": ["import ${1/(.*)/${1:/capitalize}/} from 'public/svg/${1:svg}.svg';"],
     "description": "Import Theme"
   },
   "Comments arrow": {
