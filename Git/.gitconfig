@@ -72,4 +72,4 @@
 	# crea un repositorio en Git y GitHub con las credenciales y nombre otorgados. Uso: git i F REPOSITORY-NAME 
 	i = "!f() { git validate $1 $2 || ( git nrr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg $1 $2)}; f"
 	# crea un repositorio completo con Backend-Express y Frontend-Next para Git y GitHub. Uso: git ip F APP-NAME
-	ip = "!f() { (git nla && git i $1 $2) } ; f"https://username@github.com/username/repo_name
+	ip = "!f() { (git nla && git i $1 $2) } ; f"

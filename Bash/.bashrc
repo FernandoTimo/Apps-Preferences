@@ -1,5 +1,26 @@
 # GIT
+# COLORES
+ENDCOLOR="\e[0m"
+BLACK="\e[0;30m"
+_BLACK="\e[1;30m"
+RED="\e[0;91m"
+_RED="\e[1;91m"
+GREEN="\e[0;32m"
+_GREEN="\e[1;32m"
+YELLOW="\e[0;93m"
+_YELLOW="\e[1;93m"
+BLUE="\e[0;34m"
+_BLUE="\e[1;34m"
+MAGENTA="\e[0;35m"
+_MAGENTA="\e[1;35m"
+CYAN="\e[0;36m"
+_CYAN="\e[1;36m"
+WHITE="\e[0;97m"
+_WHITE="\e[1;97m"
+GRAY="\e[0;90m"
+_GRAY="\e[1;90m"
 
+alias gb="code ~/.bashrc"
 # Show file status
 alias gs="git s"
 # Add all files
@@ -15,7 +36,7 @@ alias gf="git file"
 # Open .bashrc global file
 alias bash="code ~/.bashrc" 
 # Create a ngrok server
-alias ls="~/ngrok http $1" 
+alias nls="~/ngrok http $1" 
 
 # SCALA
 
@@ -29,10 +50,10 @@ function snw() {
 function nf() { 
   dir="libraries/fetch"
   mkdir -p $dir;
-  echo -e "import fetch from 'node-fetch';\nconst BACKEND_API = process.env.NEXT_PUBLIC_BACKEND_API;\n\n// GETTING all API $1s\nexport const GET_users = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// GETTING a API $1\nexport const GET_user = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// CREATING a API $1\nexport const POST_user = (url, data) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'POST',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t},\n\t}).then((res) => res.json());\n\n// UPDATING a API $1\nexport const PUT_user = (url, data, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'PUT',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t\tauth: token,\n\t\t},\n\t}).then((res) => res.json());\n\n// DELETING a API $1\nexport const DELETE_user = (url, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'DELETE',\n\t\theaders: { auth: token },\n\t}).then((res) => res.json());\n" >> $dir/$1.fetch.js;
+  echo -e "import fetch from 'node-fetch';\nconst BACKEND_API = process.env.NEXT_PUBLIC_BACKEND_API;\n\n// GETTING all API $1s\nexport const GET_users = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// GETTING a API $1\nexport const GET_user = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// CREATING a API $1\nexport const POST_user = (url, data) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'POST',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t},\n\t}).then((res) => res.json());\n\n// UPDATING a API $1\nexport const PUT_user = (url, data, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'PUT',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t\tauth: token,\n\t\t},\n\t}).then((res) => res.json());\n\n// DELETING a API $1\nexport const DEL_user = (url, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'DELETE',\n\t\theaders: { auth: token },\n\t}).then((res) => res.json());\n" >> $dir/$1.fetch.js;
 }
 
-# Create a Component file. JS and CSS
+# Create a Component file. JS and CSS : nc ComponentName Location/Optional/FolderName
 function nc() { 
   if [[ -z $2 ]]
   then
@@ -40,50 +61,53 @@ function nc() {
   else
    dir="components/$2"
   fi
+  component="${1^}"
   mkdir -p $dir;
-  echo -e "import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.$1}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;" >> $dir/$1.component.js ;
-  echo -e "/* Phone RD */\n.$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}" >> $dir/$1.module.css;  
+  echo -e "import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.Container}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;" >> $dir/$1.component.js ;
+  echo -e "/* Phone RD */\n.Container {\n\tdisplay: flex;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.Container {}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.Container {}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.Container {}\n}" >> $dir/${1^}.module.css;  
+  code $dir/${1^}.component.js $dir/${1^}.module.css;
+  echo -e "\n${_RED}--------/ ${_GRAY} Component and Style files created\n\n\t${CYAN}$dir/${_YELLOW}$component.component.js\n\t${CYAN}$dir${GREY}/${_YELLOW}$component.module.css${ENDCOLOR}\n"
 }
+
 # Create a Context file.
 function nctx() {
   dir="context"
+  file="${1,,}"
   mkdir -p $dir;
-  echo -e "
-import { createContext, useState } from 'react';
-const _${1^}} = createContext();
-export const _$1_ = ({ children }) => {
-  const [$1, set$1] = useState(true);
-  const toggle$1 = () => {
-    set$1(!$1);
-  };
-  return (
-    <_${1^}}.Provider value={{ $1, toggle$1 }}>
-      {children}
-    </_${1^}}.Provider>
-  );
-};
-export default _${1^}};  
-  " >> $dir/$1.context.js ;  
+  echo -e "import { createContext, useState } from 'react';\nconst _${1^} = createContext();\nexport const _$file_ = ({ children }) => {\n\tconst [$file, set$file] = useState(null);\n\tconst handler$file = (value) => {\n\t\tset$file(value);\n\t};\n\treturn (\n\t\t<_${1^}.Provider value={{ $file, handler$file }}>\n\t\t\t{children}\n\t\t</_${1^}.Provider>\n\t);\n};\nexport default _${1^};" >> $dir/$file.context.js ;
+  code $dir/$file.context.js;
+  echo -e "\n${_RED}--------/ ${_GRAY} Context file created\n\n\t${CYAN}$dir${GREY}/${_YELLOW}$file.context.js${ENDCOLOR}\n"
 }
 
 # Create a Next page with custom Head. JS and CSS
-function np() { 
-  nh $1;
-  nc ${1^} $1
-  nn $1;
-  dir="pages"
+function np() {
+  if [[ -z $2 ]]
+  then
+   dir="pages"
+  else
+   dir="pages/$2"
+  fi
+  page="${1,,}"
   mkdir -p $dir;
   mkdir -p styles/$dir;
-  mkdir -p components/$1;
-  echo -e "import style from 'styles/pages/$1.module.css';\nimport Head from 'heads/${1^}.head';\nimport { Section, Body, Content } from 'components/timoideas/Timoideas.components';\nimport ${1^} from 'components/$1/${1^}.component';\nexport default function ${1^}() {\n\treturn (\n\t\t<>\n\t\t\t<Head />\n\t\t\t<Body>\n\t\t\t\t<Section>\n\t\t\t\t\t<Content center>\n\t\t\t\t\t\t<${1^} />\n\t\t\t\t\t</Content>\n\t\t\t\t</Section>\n\t\t\t</Body>\n\t\t</>\n\t);\n}" >> $dir/$1.js;
-  echo -e "/* Phone RD */\n.$1 {\n\tfont-size: 2vh;\n\ttext-align: center;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.$1 {\n\t\tbackground: var(--c01)\n;\t}\n}" >> styles/$dir/$1.module.css;
+  echo -e "import style from 'styles/$dir/$page.module.css';\nimport Head from 'heads/$page.head';\nimport { Section, Body, Content } from 'components/timoideas/Timoideas.components';\nexport default function Page() {\n\treturn (\n\t\t<>\n\t\t\t<Head />\n\t\t\t<Body>\n\t\t\t\t<Section>\n\t\t\t\t\t<Content center>\n\t\t\t\t\t\t<div className={style.Container}>${1^}</div>\n\t\t\t\t\t</Content>\n\t\t\t\t</Section>\n\t\t\t</Body>\n\t\t</>\n\t);\n}" >> $dir/$page.js;
+  echo -e "/* Phone RD */\n.Container {\n\tdisplay: flex;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}" >> styles/$dir/$page.module.css;
+  nh $page;
+  code $dir/$page.js styles/$dir/$page.module.css;
+  echo -e "\n${_RED}--------/ ${_GRAY} Page, Style and Head files created\n\n\t${CYAN}$dir/${_YELLOW}$page.js\n\t${CYAN}styles/$dir${GREY}/${_YELLOW}$page.module.css\n\t${CYAN}$head${GREY}/${_YELLOW}$page.head.js${ENDCOLOR}\n"
 }
 
 # Create a Head Component
 function nh() { 
-  dir="heads"
+  head="heads"
+  mkdir -p $head;
+  echo -e "import Head from 'next/head';\nexport default function Head_${1^}() {\n\treturn (\n\t\t<Head>\n\t\t\t<link rel='icon' href='icons/favicons/fav_main.ico' />\n\t\t\t<meta charSet='utf-8' />\n\t\t\t<meta name='viewport' content='initial-scale=1.0, width=device-width' />\n\t\t\t<meta name='mobile-web-app-capable' content='yes'></meta>\n\t\t\t<title>${1^} | Next</title>\n\t\t\t<meta\n\t\t\t\tname='description'\n\t\t\t\tcontent='${1^} page.'\n\t\t\t/>\n\t\t\t<meta property='og:image' content='images/og/og_main.png'></meta>\n\t\t</Head>\n\t);\n}" >> $head/$1.head.js;
+}
+# Create a Hook Component
+function nhk() { 
+  dir="hooks"
   mkdir -p $dir;
-  echo -e "import Head from 'next/head';\nexport default function Head_${1^}() {\n\treturn (\n\t\t<Head>\n\t\t\t<link rel='icon' href='icons/favicons/fav_main.ico' />\n\t\t\t<meta charSet='utf-8' />\n\t\t\t<meta name='viewport' content='initial-scale=1.0, width=device-width' />\n\t\t\t<meta name='mobile-web-app-capable' content='yes'></meta>\n\t\t\t<title>${1^} | Next</title>\n\t\t\t<meta\n\t\t\t\tname='description'\n\t\t\t\tcontent='${1^} page.'\n\t\t\t/>\n\t\t\t<meta property='og:image' content='images/og/og_main.png'></meta>\n\t\t</Head>\n\t);\n}" >> $dir/$1.head.js;
+  echo -e "import { useEffect } from 'react';\nexport default function use${1^}({data}) {\n\treturn {data};\n}" >> $dir/use${1^}.hook.js;
 }
 
 # Create a Redirect route config in Next.config.js
@@ -101,7 +125,7 @@ function nms() {
 function nr() {
   dir="src/router";
   mkdir -p $dir;
-  echo -e "import { Router } from 'express';\nconst  = Router();\n\n// CONTROLLERS\nimport {\n\tGET_$1s,\n\tGET_$1,\n\tPOST_$1,\n\tPUT_$1,\n\tDELETE_$1,\n} from '../controllers/$1.controller';\n\n// MIDDLEWARES\n\n// -- Global Routes\n\nroutes.route('/').get(GET_$1s);\nroutes\n\t.route('/:id')\n\t.get(GET_$1)\n\t.post(POST_$1)\n\t.put(PUT_$1)\n\t.delete(DELETE_$1);\n\nexport default routes;\n" >> $dir/$1.routes.js;
+  echo -e "import { Router } from 'express';\nconst routes = Router();\n\n// CONTROLLERS\nimport {\n\tGET_$1s,\n\tGET_$1,\n\tPOST_$1,\n\tPUT_$1,\n\tDEL_$1,\n} from '../controllers/$1.controller';\n\n// MIDDLEWARES\n\n// -- Global Routes\n\nroutes.route('/').get(GET_$1s);\nroutes\n\t.route('/:id')\n\t.get(GET_$1)\n\t.post(POST_$1)\n\t.put(PUT_$1)\n\t.delete(DEL_$1);\n\nexport default routes;\n" >> $dir/$1.routes.js;
   sed -i "/ROUTES/a import $1 from './$1.routes';\nroutes.use('/$1', $1);" src/router/index.routes.js
 }
 # Create a Controller CRUD
@@ -115,6 +139,7 @@ function ncb() {
   nms $1;
   nct $1;
   nr $1;
+  ga init ${1^} CRUD
 }
 # Create a JSON file
 function njson() {

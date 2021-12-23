@@ -30,10 +30,20 @@
     ],
     "description": "Default next Content"
   },
-  "variable": {
+  "create variable": {
     "prefix": "--",
+    "body": "var(--${1:var})",
+    "description": "create variable"
+  },
+  "create variable Color": {
+    "prefix": "--c",
     "body": "var(--c${1:00})",
     "description": "Set Backgound"
+  },
+  "create calc": {
+    "prefix": "calc(",
+    "body": "calc(${1:10vh - 5vh})",
+    "description": "create calc"
   },
   "Transform Scale": {
     "prefix": "ts",

@@ -225,6 +225,16 @@
       "tab.hoverBackground": "#0f2c27"
     }
   },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "foreground": "#8c8c8c"
+        }
+      }
+    ]
+  },
   "vscodeGoogleTranslate.preferredLanguage": "Spanish",
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
@@ -239,5 +249,7 @@
     "**/*.less",
     "**/*.styl",
     "**/*.js"
-  ]
+  ],
+  "editor.inlineSuggest.enabled": true,
+  "bracket-pair-colorizer-2.depreciation-notice": false
 }

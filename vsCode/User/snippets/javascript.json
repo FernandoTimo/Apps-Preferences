@@ -122,10 +122,12 @@
   "New Client Socket": {
     "prefix": "ncs",
     "body": [
-      "// NEW SOCKET ===  $1",
-      "socket.on('$1', (e) => {",
-      "${2: console.log(e)}",
-      "})"
+      "// $1 ",
+      "const handler${2:Socket} = (data) => {",
+      "\tconsole.log(data)",
+      "}",
+      "socket.on('${1:event}', handler$2)",
+      "\tsocket.off('$1', handler$2)"
     ],
     "description": "New Client Socket"
   },
@@ -151,7 +153,7 @@
   },
   "Console.log": {
     "prefix": "clg",
-    "body": "console.log('${1:hola mundo}')",
+    "body": "console.log('$1')",
     "description": "Console log "
   },
   "Import From": {
@@ -184,7 +186,7 @@
     "body": "Platform.OS === 'ios' ? '1' : '0'",
     "description": "OS Platform"
   },
-  
+
   "Import SRW HOOK": {
     "prefix": "isrw",
     "body": "import useSWR from 'swr'",
@@ -199,6 +201,20 @@
     "prefix": "Section",
     "body": ["<Section show size={1}>$1</Section>"],
     "description": "Section Component"
+  },
+  "Scroll Component": {
+    "prefix": "<Scroll",
+    "body": [
+      "<Scroll show x gap={1} size={[8, 8]} scrollbar={true}>$1</Scroll>"
+    ],
+    "description": "Scroll Component"
+  },
+  "Docker Component": {
+    "prefix": "<Docker",
+    "body": [
+      "<Docker show width={[10, 75]} height={[10, 75]} className={style.Docker}>$1</Docker>"
+    ],
+    "description": "Docker Component"
   },
   "Content Component": {
     "prefix": "Content",
@@ -217,7 +233,9 @@
   },
   "Grid ClassName Component": {
     "prefix": ".Grid",
-    "body": ["<Grid center gap={2} columns={[2, 5]} rows={[2, 5]} className={style.$1}>$2</Grid>"],
+    "body": [
+      "<Grid center gap={2} columns={[2, 5]} rows={[2, 5]} className={style.$1}>$2</Grid>"
+    ],
     "description": "Grid Component"
   },
   "<Header></Header>": {
@@ -271,7 +289,8 @@
       "\tdata={${1:Array}}",
       "\trenderItem={({item}) => <Text>{item.${2:key}}</Text>}",
       "\tkeyExtractor={item => item._id}",
-      "/>"],
+      "/>"
+    ],
     "description": "FlatList"
   },
   "FlatList Style": {
@@ -282,7 +301,8 @@
       "\tdata={${2:Array}}",
       "\trenderItem={({item}) => <Text>{item.${3:key}}</Text>}",
       "\tkeyExtractor={item => item._id}",
-      "/>"],
+      "/>"
+    ],
     "description": "FlatList Style"
   },
   "TextInput": {
@@ -292,7 +312,8 @@
       "\tonChangeText={handler${1:Change}}",
       "\tkeyboardType='default'",
       "\tplaceholder={'Placeholder...'}",
-      "/>"],
+      "/>"
+    ],
     "description": "TextInput"
   },
   "TextInput Style": {
@@ -303,7 +324,8 @@
       "\tonChangeText={handler${1:Change}}",
       "\tkeyboardType='default'",
       "\tplaceholder={'Placeholder...'}",
-      "/>"],
+      "/>"
+    ],
     "description": "TextInput Style"
   },
   "TouchableHighlight": {
@@ -311,7 +333,8 @@
     "body": [
       "<TouchableHighlight$3 onPress={handler${1:Press}}>",
       "\t<Text>$1</Text>",
-      "</TouchableHighlight>"],
+      "</TouchableHighlight>"
+    ],
     "description": "TouchableHighlight"
   },
   "TouchableHighlight Style": {
@@ -319,7 +342,8 @@
     "body": [
       "<TouchableHighlight$3 style={style.${1:Button}} onPress={handler${2:Press}}>",
       "\t<Text>$1</Text>",
-      "</TouchableHighlight>"],
+      "</TouchableHighlight>"
+    ],
     "description": "TouchableHighlight Style"
   },
   "Div": {
@@ -417,9 +441,9 @@
     "body": "<button>$1</button>",
     "description": "Input"
   },
-  "Buttom Class": {
+  "Buttom ClassName": {
     "prefix": ".btn",
-    "body": "<button className={${1:s}.$2}>$3</button>",
+    "body": "<button className={style.$1}>$2</button>",
     "description": "Create a Buttom"
   },
   "Buttom Event": {
@@ -538,12 +562,12 @@
     "prefix": "np",
     "body": [
       "import style from 'styles/pages/$1.module.css'",
-      "import Head_Main from 'heads/Main.head';",
-      "import { Section, Body, Content } from 'components/Resources/Timoideas'",
-      "export default function ${1:Index}() {",
+      "import Head from 'heads/main.head';",
+      "import { Section, Body, Content } from 'components/timoideas/Timoideas.components';",
+      "export default function Page() {",
       "\t return(",
       "\t\t<>",
-      "\t\t\t<Head_Main/>",
+      "\t\t\t<Head/>",
       "\t\t\t<Body>",
       "\t\t\t\t<Section>",
       "\t\t\t\t\t<Content center>",
@@ -566,26 +590,26 @@
       "\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) => res.json());",
       "export const POST_${1:Fetcher} = (url, data) =>",
       "\tfetch(BACKEND_API + url, {",
-      "\t\tmethod: 'POST',",     
-      "\t\tbody: JSON.stringify(data),",     
-      "\t\theaders: {",     
-      "\t\t\t'Content-Type': 'application/json',",     
-      "\t\t},",     
-      "\t}).then((res) => res.json());",     
+      "\t\tmethod: 'POST',",
+      "\t\tbody: JSON.stringify(data),",
+      "\t\theaders: {",
+      "\t\t\t'Content-Type': 'application/json',",
+      "\t\t},",
+      "\t}).then((res) => res.json());",
       "export const PUT_${1:Fetcher} = (url, data, token) =>",
       "\tfetch(BACKEND_API + url, {",
-      "\t\tmethod: 'PUT',",     
-      "\t\tbody: JSON.stringify(data),",     
-      "\t\theaders: {",     
-      "\t\t\t'Content-Type': 'application/json',",     
-      "\t\t\tauth: token,",     
-      "\t\t},",     
-      "\t}).then((res) => res.json());",             
+      "\t\tmethod: 'PUT',",
+      "\t\tbody: JSON.stringify(data),",
+      "\t\theaders: {",
+      "\t\t\t'Content-Type': 'application/json',",
+      "\t\t\tauth: token,",
+      "\t\t},",
+      "\t}).then((res) => res.json());",
       "export const DELETE_${1:Fetcher} = (url, token) =>",
       "\tfetch(BACKEND_API + url, {",
-      "\t\tmethod: 'DELETE',",  
-      "\t\theaders: { auth: token },",  
-      "\t}).then((res) => res.json());",
+      "\t\tmethod: 'DELETE',",
+      "\t\theaders: { auth: token },",
+      "\t}).then((res) => res.json());"
     ],
     "description": "Fetch full methods"
   },
@@ -747,6 +771,11 @@
     "body": "className={style.$1}",
     "description": "ClassName Attribute"
   },
+  "Widht Height Attribute": {
+    "prefix": "wh",
+    "body": "width={[10, 75]} height={[10, 75]}",
+    "description": "Widht Height Attribute"
+  },
   "Padding Attribute": {
     "prefix": "pd",
     "body": "pd={${1:0.5}}",
@@ -814,14 +843,38 @@
     "description": "useCounter Documented"
   },
   "useState": {
-    "prefix": "useS",
-    "body": ["// $1 State","const [${1:State}, set${1:State}] = useState($2)"],
+    "prefix": "useState",
+    "body": ["const [${1:State}, set${1:State}] = useState$3($2)"],
     "description": "Create useState hook"
   },
+  "useContext": {
+    "prefix": "useContext",
+    "body": [
+      "const {${1:context}, handler$1} = useContext(_${1/(.*)/${1:/capitalize}/}$2)"
+    ],
+    "description": "Create useContext hook"
+  },
   "useEffect": {
-    "prefix": "useE",
-    "body": ["useEffect(() => {", "\t$1", "\treturn () => {}", "}, [$2])"],
+    "prefix": "useEffect",
+    "body": ["useEffect$0(() => {", "\t$1", "\treturn () => {}", "}, [$2])"],
     "description": "Create useEffect hook"
+  },
+  "useSocket": {
+    "prefix": "useSocket",
+    "body": [
+      "// Sockets",
+      "useEffect$1(() => {",
+      "\t//$3",
+      "\tconst handler${4:Socket} = (data) => {",
+      "\t\tconsole.log(data)",
+      "\t}",
+      "\tsocket$2.on('${3:event}', handler$4)",
+      "\treturn () => {",
+      "\t\tsocket.off('$3', handler$4)",
+      "\t}",
+      "}, [])"
+    ],
+    "description": "Create Socket conection"
   },
   "useRef": {
     "prefix": "useR",
@@ -855,7 +908,9 @@
   },
   "Import SVG": {
     "prefix": "isvg",
-    "body": ["import ${1/(.*)/${1:/capitalize}/} from 'public/svg/${1:svg}.svg';"],
+    "body": [
+      "import ${1/(.*)/${1:/capitalize}/} from 'public/svg/${1:svg}.svg';"
+    ],
     "description": "Import Theme"
   },
   "Comments arrow": {
