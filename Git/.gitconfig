@@ -31,8 +31,8 @@
 	# REMOVE - files and documents
 	k = "!f(){ rm -rf .git; };f"
 	# LINK - custom config
-	ul = "!f(){ rm -rf ~/AppData/Roaming/code/User && cp -rl ~/Desktop/Timoideas/GitHub/Preferences/vsCode/User ~/AppData/Roaming/code/; };f"
-	gl = "!f(){ rm ~/.gitconfig && cp -rl Git/.gitconfig ~/; };f"
+	ul = "!f(){ rm -rf ~/AppData/Roaming/Code/User && cp -rl ~/Desktop/Preferences/vsCode/User ~/AppData/Roaming/Code/; };f"
+	gl = "!f(){ rm ~/.gitconfig && cp -rl ~/Desktop/Preferences/Git/.gitconfig ~/; };f"
 	# CONFIG - local, global user values.
 	un = config --global user.name 
 	um = config --global user.email
