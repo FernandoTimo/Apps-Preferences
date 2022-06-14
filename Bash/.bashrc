@@ -64,8 +64,8 @@ function nc() {
   component="${1^}"
   mkdir -p $dir;
   echo -e "import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.Container}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;" >> $dir/$1.component.js ;
-  echo -e "/* Phone RD */\n.Container {\n\tdisplay: flex;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.Container {}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.Container {}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.Container {}\n}" >> $dir/${1^}.module.css;  
-  code $dir/${1^}.component.js $dir/${1^}.module.css;
+  echo -e "/* Phone */\n.Container {\n\tdisplay: flex;\n}\n\n/* Tablet */\n@media (min-width: 576px) {\n}\n/* Laptop */\n@media (min-width: 768px) {\n}\n/* Desktop */\n@media (min-width: 1200px) {\n}" >> $dir/$1.module.css;  
+  code $dir/$1.component.js $dir/$1.module.css;
   echo -e "\n${_RED}--------/ ${_GRAY} Component and Style files created\n\n\t${CYAN}$dir/${_YELLOW}$component.component.js\n\t${CYAN}$dir${GREY}/${_YELLOW}$component.module.css${ENDCOLOR}\n"
 }
 
@@ -103,11 +103,28 @@ function nh() {
   mkdir -p $head;
   echo -e "import Head from 'next/head';\nexport default function Head_${1^}() {\n\treturn (\n\t\t<Head>\n\t\t\t<link rel='icon' href='icons/favicons/fav_main.ico' />\n\t\t\t<meta charSet='utf-8' />\n\t\t\t<meta name='viewport' content='initial-scale=1.0, width=device-width' />\n\t\t\t<meta name='mobile-web-app-capable' content='yes'></meta>\n\t\t\t<title>${1^} | Next</title>\n\t\t\t<meta\n\t\t\t\tname='description'\n\t\t\t\tcontent='${1^} page.'\n\t\t\t/>\n\t\t\t<meta property='og:image' content='images/og/og_main.png'></meta>\n\t\t</Head>\n\t);\n}" >> $head/$1.head.js;
 }
+
 # Create a Hook Component
 function nhk() { 
-  dir="hooks"
+  dir="libraries"
   mkdir -p $dir;
   echo -e "import { useEffect } from 'react';\nexport default function use${1^}({data}) {\n\treturn {data};\n}" >> $dir/use${1^}.hook.js;
+  code $dir/use${1^}.hook.js ;
+  echo -e "\n${_RED}--------/ ${_GRAY} Hook created\n\n\t${CYAN}$dir/${_YELLOW}use${1^}.hook.js${ENDCOLOR}\n"
+}
+
+# Create a SWR Hook Component
+function nswr() { 
+  if [[ -z $2 ]]
+  then
+   dir="libraries/swr"
+  else
+   dir="libraries/swr/$2"
+  fi
+  mkdir -p $dir;
+  echo -e "import useSWR from 'swr';\nexport default function use${1^}() {\n\tconst { data } = useSWR('/api/${1,,}', () => ({}));\n\treturn { data };\n}" >> $dir/use${1^}.swr.js;
+  code $dir/use${1^}.swr.js ;
+  echo -e "\n${_RED}--------/ ${_GRAY} SWR Hook created\n\n\t${CYAN}$dir/${_YELLOW}use${1^}.swr.js${ENDCOLOR}\n"
 }
 
 # Create a Redirect route config in Next.config.js

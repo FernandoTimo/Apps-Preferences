@@ -39,6 +39,7 @@
     "sockets": "class",
     "fetch": "temp",
     "timoideas": "home",
+    "swr": "less",
     "null": "batch"
   },
   "material-icon-theme.files.associations": {
@@ -48,6 +49,7 @@
     "Timoideas.components.js": "moonscript",
     "*.component.js": "react",
     "*.head.js": "gemini",
+    "*.swr.js": "less",
     ".svgrrc": "nim",
     "*.module.css": "react_ts",
     "*.styles.js": "react_ts",

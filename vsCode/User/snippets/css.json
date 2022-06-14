@@ -72,7 +72,7 @@
   },
   "Backgound Hexadecimal Gradient": {
     "prefix": "bggg",
-    "body": "background: linear-gradient(#${1:fa0}, #${2:4a8});",
+    "body": "background: linear-gradient(90deg, #${1:ff4d4d}, #${2:f9cb28});",
     "description": "Set Backgound Hexadecimal Gradient"
   },
   "Foreground": {
@@ -88,7 +88,7 @@
   "Foreground Hexadecimal Gradient": {
     "prefix": "fggg",
     "body": [
-      "background: linear-gradient(#${1:fa0}, #${2:4a8});",
+      "background: linear-gradient(90deg, #${1:007cf0}, #${2:00dfd8});",
       "background-clip: text;",
       "-webkit-text-fill-color: transparent;"
     ],

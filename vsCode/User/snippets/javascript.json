@@ -205,7 +205,7 @@
   "Scroll Component": {
     "prefix": "<Scroll",
     "body": [
-      "<Scroll show x gap={1} size={[8, 8]} scrollbar={true}>$1</Scroll>"
+      "<Scroll show x gap={1} size={[8, 8]} scrollBar={true}>$1</Scroll>"
     ],
     "description": "Scroll Component"
   },
@@ -251,7 +251,7 @@
   "<Emergente></Emergente>": {
     "prefix": "<Emergente",
     "body": [
-      "<Emergente child={<${1:Component} />} active={[$1State, toggle$1State, true]} position={[null, null, null, null]}><button onClick={toggle$1State}>$1</button></Emergente>"
+      "<Emergente child={${1:<button role='close'>Close</button>}} position={['top', 'left',]} translate={[0, 0]} className={style.Emergente} id={'$2'}><button>Abrir</button></Emergente>"
     ],
     "description": "Emergente Component"
   },
@@ -436,6 +436,11 @@
     "body": "<input type='text' className='$1'/>",
     "description": "Input Classname"
   },
+  "Input ClassName Module": {
+    "prefix": "..input",
+    "body": "<input type='text' className={style.$1}/>",
+    "description": "Input Classname Module"
+  },
   "Buttom": {
     "prefix": "btn",
     "body": "<button>$1</button>",
@@ -443,8 +448,13 @@
   },
   "Buttom ClassName": {
     "prefix": ".btn",
-    "body": "<button className={style.$1}>$2</button>",
+    "body": "<button className='$1'>$2</button>",
     "description": "Create a Buttom"
+  },
+  "Buttom ClassName Module": {
+    "prefix": "..btn",
+    "body": "<button className={style.$1}>$2</button>",
+    "description": "Create a Buttom Module"
   },
   "Buttom Event": {
     "prefix": "ebtn",
@@ -770,6 +780,11 @@
     "prefix": "cc",
     "body": "className={style.$1}",
     "description": "ClassName Attribute"
+  },
+  "Active Link ClasName": {
+    "prefix": "al",
+    "body": "`${${1:true} && style.ActiveLink}`",
+    "description": "Active Link ClasName"
   },
   "Widht Height Attribute": {
     "prefix": "wh",
