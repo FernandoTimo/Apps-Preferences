@@ -48,9 +48,18 @@ function snw() {
 
 # Create fetch file
 function nf() { 
-  dir="libraries/fetch"
+  if [[ -z $2 ]]
+  then
+   dir="libraries"
+  else
+   dir="libraries/$2"
+  fi
   mkdir -p $dir;
-  echo -e "import fetch from 'node-fetch';\nconst BACKEND_API = process.env.NEXT_PUBLIC_BACKEND_API;\n\n// GETTING all API $1s\nexport const GET_users = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// GETTING a API $1\nexport const GET_user = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// CREATING a API $1\nexport const POST_user = (url, data) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'POST',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t},\n\t}).then((res) => res.json());\n\n// UPDATING a API $1\nexport const PUT_user = (url, data, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'PUT',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t\tauth: token,\n\t\t},\n\t}).then((res) => res.json());\n\n// DELETING a API $1\nexport const DEL_user = (url, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'DELETE',\n\t\theaders: { auth: token },\n\t}).then((res) => res.json());\n" >> $dir/$1.fetch.js;
+  ext="fetch.js"
+  echo -e "import fetch from 'node-fetch';\nconst BACKEND_API = process.env.NEXT_PUBLIC_BACKEND_API;\n\n// GETTING all API $1s\nexport const GET_$1s = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// GETTING a API $1\nexport const GET_$1 = (url, token) =>\n\tfetch(BACKEND_API + url, { headers: { auth: token } }).then((res) =>\n\t\tres.json()\n\t);\n\n// CREATING a API $1\nexport const POST_$1 = (url, data) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'POST',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t},\n\t}).then((res) => res.json());\n\n// UPDATING a API $1\nexport const PUT_$1 = (url, data, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'PUT',\n\t\tbody: JSON.stringify(data),\n\t\theaders: {\n\t\t\t'Content-Type': 'application/json',\n\t\t\tauth: token,\n\t\t},\n\t}).then((res) => res.json());\n\n// DELETING a API $1\nexport const DEL_$1 = (url, token) =>\n\tfetch(BACKEND_API + url, {\n\t\tmethod: 'DELETE',\n\t\theaders: { auth: token },\n\t}).then((res) => res.json());\n" >> $dir/$1.$ext;
+  code $dir/$1.$ext;
+  ga $1 fetchers created.;
+  echo -e "\n${_RED}--------/ ${_GRAY} Fetchers file created\n\n\t${CYAN}$dir/${_YELLOW}$1.$ext${ENDCOLOR}\n"
 }
 
 # Create a Component file. JS and CSS : nc ComponentName Location/Optional/FolderName
@@ -63,10 +72,12 @@ function nc() {
   fi
   component="${1^}"
   mkdir -p $dir;
-  echo -e "import style from './$1.module.css';\nfunction $1() {\n\treturn (\n\t\t<div className={style.Container}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}\nexport default $1;" >> $dir/$1.component.js ;
+  echo -e "import style from './$1.module.css';\nexport default function $1() {\n\treturn (\n\t\t<div className={style.Container}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}" >> $dir/$1.component.js ;
   echo -e "/* Phone */\n.Container {\n\tdisplay: flex;\n}\n\n/* Tablet */\n@media (min-width: 576px) {\n}\n/* Laptop */\n@media (min-width: 768px) {\n}\n/* Desktop */\n@media (min-width: 1200px) {\n}" >> $dir/$1.module.css;  
   code $dir/$1.component.js $dir/$1.module.css;
+  ga $1 component created.;
   echo -e "\n${_RED}--------/ ${_GRAY} Component and Style files created\n\n\t${CYAN}$dir/${_YELLOW}$component.component.js\n\t${CYAN}$dir${GREY}/${_YELLOW}$component.module.css${ENDCOLOR}\n"
+
 }
 
 # Create a Context file.
@@ -74,7 +85,7 @@ function nctx() {
   dir="context"
   file="${1,,}"
   mkdir -p $dir;
-  echo -e "import { createContext, useState } from 'react';\nconst _${1^} = createContext();\nexport const _$file_ = ({ children }) => {\n\tconst [$file, set$file] = useState(null);\n\tconst handler$file = (value) => {\n\t\tset$file(value);\n\t};\n\treturn (\n\t\t<_${1^}.Provider value={{ $file, handler$file }}>\n\t\t\t{children}\n\t\t</_${1^}.Provider>\n\t);\n};\nexport default _${1^};" >> $dir/$file.context.js ;
+  echo -e "import { createContext, useState } from 'react';\nconst _${1^} = createContext();\nexport const _${file^}_ = ({ children }) => {\n\tconst [$file, set$file] = useState(null);\n\tconst handler$file = (value) => {\n\t\tset$file(value);\n\t};\n\treturn (\n\t\t<_${1^}.Provider value={{ $file, handler$file }}>\n\t\t\t{children}\n\t\t</_${1^}.Provider>\n\t);\n};\nexport default _${1^};" >> $dir/$file.context.js ;
   code $dir/$file.context.js;
   echo -e "\n${_RED}--------/ ${_GRAY} Context file created\n\n\t${CYAN}$dir${GREY}/${_YELLOW}$file.context.js${ENDCOLOR}\n"
 }
@@ -106,11 +117,11 @@ function nh() {
 
 # Create a Hook Component
 function nhk() { 
-  dir="libraries"
+  dir="hooks"
   mkdir -p $dir;
-  echo -e "import { useEffect } from 'react';\nexport default function use${1^}({data}) {\n\treturn {data};\n}" >> $dir/use${1^}.hook.js;
-  code $dir/use${1^}.hook.js ;
-  echo -e "\n${_RED}--------/ ${_GRAY} Hook created\n\n\t${CYAN}$dir/${_YELLOW}use${1^}.hook.js${ENDCOLOR}\n"
+  echo -e "import { useEffect } from 'react';\nexport default function $1({data}) {\n\treturn {data};\n}" >> $dir/$1.hook.js;
+  code $dir/$1.hook.js ;
+  echo -e "\n${_RED}--------/ ${_GRAY} Hook created\n\n\t${CYAN}$dir/${_YELLOW}$1.hook.js${ENDCOLOR}\n"
 }
 
 # Create a SWR Hook Component
@@ -122,9 +133,9 @@ function nswr() {
    dir="libraries/swr/$2"
   fi
   mkdir -p $dir;
-  echo -e "import useSWR from 'swr';\nexport default function use${1^}() {\n\tconst { data } = useSWR('/api/${1,,}', () => ({}));\n\treturn { data };\n}" >> $dir/use${1^}.swr.js;
-  code $dir/use${1^}.swr.js ;
-  echo -e "\n${_RED}--------/ ${_GRAY} SWR Hook created\n\n\t${CYAN}$dir/${_YELLOW}use${1^}.swr.js${ENDCOLOR}\n"
+  echo -e "import useSWR from 'swr';\n\nexport default function $1() {\n\tconst { data } = useSWR('/api/${1,,}', () => ({}));\n\n\treturn { ...data };\n}" >> $dir/$1.swr.js;
+  code $dir/$1.swr.js ;
+  echo -e "\n${_RED}--------/ ${_GRAY} SWR Hook created\n\n\t${CYAN}$dir/${_YELLOW}$1.swr.js${ENDCOLOR}\n"
 }
 
 # Create a Redirect route config in Next.config.js
