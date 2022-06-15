@@ -43,13 +43,12 @@
 
 	# LINK - custom config from Timoideas Preferences
 	# Crea un vínculo fuerte de la configuración User a la configuración Global de vsCode
-	ul = "!f(){ rm -rf ~/AppData/Roaming/Code/User && cp -rl ~/Preferences/vsCode/User ~/AppData/Roaming/Code/; };f"
+	lu = "!f(){ rm -rf ~/AppData/Roaming/Code/User && cp -rl ~/Preferences/vsCode/User ~/AppData/Roaming/Code/; };f"
 	# Crea un vínculo fuerte de la .gitconfig a la configuración Global de Git
-	gl = "!f(){ rm ~/.gitconfig && cp -rl ~/Desktop/Preferences/Git/.gitconfig ~/; };f"
+	lg = "!f(){ rm -rf ~/.gitconfig && cp -rl ~/Preferences/Git/.gitconfig ~/; };f"
 	# Crea un vínculo fuerte de la .bashrc a la configuración Global de Git Bash
-	bl = "!f(){ rm ~/.bashrc && cp -rl ~/Desktop/Preferences/Bash/.bashrc ~/; };f"
+	lb = "!f(){ rm -rf ~/.bashrc && cp -rl ~/Preferences/Bash/.bashrc ~/; };f"
 	# Crea un vínculo fuerte de la .bashrc a la configuración Global de Git Bash
-	bl = "!f(){ rm ~/.bashrc && cp -rl ~/Desktop/Preferences/Bash/.bashrc ~/; };f"
 
 	# CONFIG - local, global user values.
 	un = config --global user.name 
