@@ -38,8 +38,30 @@ alias bash="code ~/.bashrc"
 # Create a ngrok server
 alias nls="~/ngrok http $1" 
 
-# SCALA
+# CONFIGURATION 
 
+# Crea un vínculo fuerte de la configuración User a la configuración Global de vsCode
+function lu() {
+  rm -rf ~/AppData/Roaming/Code/User;
+  cp -rl ~/Preferences/vsCode/User ~/AppData/Roaming/Code/;
+}
+# Crea un vínculo fuerte de la .gitconfig a la configuración Global de Git
+function lg() {
+  rm -rf ~/.gitconfig;
+  cp -rl ~/Preferences/Git/.gitconfig ~/
+}
+# Crea un vínculo fuerte de la .bashrc a la configuración Global de Git Bash
+function lb() {
+  rm -rf ~/.bashrc;
+  cp -rl ~/Preferences/Bash/.bashrc ~/
+}
+# Crea un vínculo fuerte de GitHub CLI a la configuración de cuentas de GitHub
+function lgh() {
+  # rm -rf ~/Preferences/GitHub/.github;
+  cp -rl ~/Preferences/GH_CLI/"GitHub CLI" ~/AppData/Roaming/"GitHub CLI"/;
+}
+
+# SCALA
 # Create scala worksheet
 function snw() { 
   echo "println(\"WorkSheet created!\")" >> $1.worksheet.sc 

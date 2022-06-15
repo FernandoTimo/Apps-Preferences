@@ -41,15 +41,6 @@
 	# remove .git directory
 	k = "!f(){ rm -rf .git; };f"
 
-	# LINK - custom config from Timoideas Preferences
-	# Crea un vínculo fuerte de la configuración User a la configuración Global de vsCode
-	lu = "!f(){ rm -rf ~/AppData/Roaming/Code/User && cp -rl ~/Preferences/vsCode/User ~/AppData/Roaming/Code/; };f"
-	# Crea un vínculo fuerte de la .gitconfig a la configuración Global de Git
-	lg = "!f(){ rm -rf ~/.gitconfig && cp -rl ~/Preferences/Git/.gitconfig ~/; };f"
-	# Crea un vínculo fuerte de la .bashrc a la configuración Global de Git Bash
-	lb = "!f(){ rm -rf ~/.bashrc && cp -rl ~/Preferences/Bash/.bashrc ~/; };f"
-	# Crea un vínculo fuerte de la .bashrc a la configuración Global de Git Bash
-
 	# CONFIG - local, global user values.
 	un = config --global user.name 
 	um = config --global user.email
@@ -73,11 +64,12 @@
 	msg = "!f() { printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && git h$1 $2; } ; f"
 	validate = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") }; f"
 	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo -e \"desktop.ini \n .vscode\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg; }; f"
-
+	mghf = "!echo \"$(tput setaf 8) >--     GitHub: FernandoTimo      --< \"";
+	mght = "!echo \"$(tput setaf 8) >--     GitHub: Timoideas      --< \"";
 	# GitHub - cli
 
 	# Cambia de cuenta de Github. Uso: git gh F
-	gh = "!f() { bash ~/gh$1.sh; };f"
+	gh = "!f() { bash ~/Preferences/GH_CLI/gh$1.sh && git mgh$1; };f"
 	# Crea un repositorio remoto en Github y lo clona localmente. Uso: git nrr F RepoName
 	nr = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 -h https://timoideas.com && git h$1 $2 && git ra $1 $2 ; }; f"
 	# Crea un repositorio remoto en Github con la plantilla Frontend-Next y lo clona localmente. Uso: git nrf F Frontend-Clone
