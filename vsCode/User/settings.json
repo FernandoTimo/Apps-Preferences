@@ -222,9 +222,9 @@
   },
   "workbench.colorCustomizations": {
     "[Timoideas - Esmeralda Soft]": {
-      "tab.activeBackground": "#16463e",
+      "tab.activeBackground": "#25503a",
       "tab.activeForeground": "#ffc400",
-      "tab.hoverBackground": "#0f2c27"
+      "tab.hoverBackground": "#1a4941"
     }
   },
   "editor.tokenColorCustomizations": {

@@ -73,16 +73,18 @@
 	# Crea un repositorio remoto en Github y lo clona localmente. Uso: git nrr F RepoName
 	nr = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 -h https://timoideas.com && git h$1 $2 && git ra $1 $2 ; }; f"
 	# Crea un repositorio remoto en Github con la plantilla Frontend-Next y lo clona localmente. Uso: git nrf F Frontend-Clone
-	nrf = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 --template https://github.com/FernandoTimo/Frontend-Next && git pull origin main && echo \"# Frontend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
+	nrf = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 --template https://github.com/FernandoTimo/Frontend-Next && git ra $1 $2 && git pull origin main && echo \"# Frontend $2\"> README.md && git a Readme && git msg $1 $2 && npm i && npm run dev; }; f"
 	# Crea un repositorio remoto en Github con la plantilla Backend-Express y lo clona localmente. Uso: git nrb F Backend-Clone
-	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --template https://github.com/FernandoTimo/Backend-Express && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2; }; f"
+	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --template https://github.com/FernandoTimo/Backend-Express && git ra $1 $2 && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2 && npm i && npm run dev; }; f"
+	# Crea un repositorio remoto en Github con la plantilla FullStack-Next y lo clona localmente. Uso: git nra F FullStack-Clone
+	nra = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 --template https://github.com/FernandoTimo/FullStack-Next && git ra $1 $2 && git pull origin main && echo \"# Frontend $2\"> README.md && git a Readme && git msg $1 $2 && npm i && npm run dev; }; f"
 	# Aqui agregar web y descripcion a github
 	vv = "!f() { mkdir -p \"Releases\" && echo -e \"### Core Changes \n - $2\" >> Releases/Release_$1.md && gh release create -t v$1 v$1 -F Releases/Release_$1.md $3; }; f"
 	
 	# 	FULL - comands
 
 	# crea un commit y guarda los cambios en GitHub. Uso: git a Cualquier commit c/s comillas
-	a = "!f() { git ac \"$*\" && git pu && git sc; }; f"
+	a = "!f() { git ac \"$*\" && git pu && git scs; }; f"
 	# crea un repositorio en Git y GitHub con las credenciales y nombre otorgados. Uso: git i F REPOSITORY-NAME 
 	i = "!f() { git validate $1 $2 || ( git nrr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg $1 $2)}; f"
 	# crea un repositorio completo con Backend-Express y Frontend-Next para Git y GitHub. Uso: git ip F APP-NAME

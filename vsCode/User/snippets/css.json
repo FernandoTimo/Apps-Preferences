@@ -179,7 +179,7 @@
   },
   "Border": {
     "prefix": "border",
-    "body": "border: .2vh solid #${1:000};",
+    "body": "border: .2vh solid #${1:fa0};",
     "description": "Border"
   },
   "Pointer Events Visible": {

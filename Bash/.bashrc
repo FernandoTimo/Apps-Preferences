@@ -123,11 +123,31 @@ function np() {
   page="${1,,}"
   mkdir -p $dir;
   mkdir -p styles/$dir;
-  echo -e "import style from 'styles/$dir/$page.module.css';\nimport Head from 'heads/$page.head';\nimport { Section, Body, Content } from 'components/timoideas/Timoideas.components';\nexport default function Page() {\n\treturn (\n\t\t<>\n\t\t\t<Head />\n\t\t\t<Body>\n\t\t\t\t<Section>\n\t\t\t\t\t<Content center>\n\t\t\t\t\t\t<div className={style.Container}>${1^}</div>\n\t\t\t\t\t</Content>\n\t\t\t\t</Section>\n\t\t\t</Body>\n\t\t</>\n\t);\n}" >> $dir/$page.js;
+  echo -e "import style from 'styles/$dir/$page.module.css';\nimport Head from 'heads/$page.head';\nimport { Section, Body, Content } from 'components/timoideas/Timoideas.components';\n\nexport default function Page() {\n\treturn (\n\t\t<>\n\t\t\t<Head />\n\t\t\t<Body>\n\t\t\t\t<Section>\n\t\t\t\t\t<Content center>\n\t\t\t\t\t\t<div className={style.Container}>${1^}</div>\n\t\t\t\t\t</Content>\n\t\t\t\t</Section>\n\t\t\t</Body>\n\t\t</>\n\t);\n}" >> $dir/$page.js;
   echo -e "/* Phone RD */\n.Container {\n\tdisplay: flex;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}" >> styles/$dir/$page.module.css;
   nh $page;
   code $dir/$page.js styles/$dir/$page.module.css;
   echo -e "\n${_RED}--------/ ${_GRAY} Page, Style and Head files created\n\n\t${CYAN}$dir/${_YELLOW}$page.js\n\t${CYAN}styles/$dir${GREY}/${_YELLOW}$page.module.css\n\t${CYAN}$head${GREY}/${_YELLOW}$page.head.js${ENDCOLOR}\n"
+}
+# Create a Dynamic Next page with custom Head. JS and CSS
+function npd() {
+  if [[ -z $2 ]]
+  then
+   dir="pages"
+  else
+   dir="pages/$2"
+  fi
+  page="${1,,}"
+  pageJSRoute=$dir/[$page]/index.js
+  pageCSSRoute=styles/$dir/[$page]/$page.module.css
+  mkdir -p $dir/[$page];
+  mkdir -p styles/$dir/[$page];
+  echo -e "import style from '$pageCSSRoute';\nimport Head from 'heads/$page.head';\nimport { Section, Body, Content } from 'components/timoideas/Timoideas.components';\nimport { useRouter } from 'next/router';\n\nexport default function Page() {\n\tconst router = useRouter();\n\tconst { $page } = router.query;\n\treturn (\n\t\t<>\n\t\t\t<Head />\n\t\t\t<Body>\n\t\t\t\t<Section>\n\t\t\t\t\t<Content center>\n\t\t\t\t\t\t<div className={style.Container}>\n\t\t\t\t\t\t\t<h1>${1^}</h1>\n\t\t\t\t\t\t\t<h3>{$page}</h3>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</Content>\n\t\t\t\t</Section>\n\t\t\t</Body>\n\t\t</>\n\t);\n}" >> $pageJSRoute;
+  echo -e "/* Phone RD */\n.Container {\n\tflex-direction: column;\n\tgap: 1vh;\n}\n\n/* Tablet RD */\n@media (min-width: 576px) {\n\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Laptop RD */\n@media (min-width: 768px) {\n\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}\n\n/* Desktop RD */\n@media (min-width: 1200px) \n{\t.Container {\n\t\tbackground: var(--c01)\n;\t}\n}" >> $pageCSSRoute;
+  nh $page;
+  ga Page ${1^} Created;
+  code $pageJSRoute $pageCSSRoute;
+  echo -e "\n${_RED}--------/ ${_GRAY} Page, Style and Head files created\n\n\t${CYAN}$dir/[$page]/${_YELLOW}index.js\n\t${CYAN}styles/$dir/[$page]${GREY}/${_YELLOW}$page.module.css\n\t${CYAN}$head${GREY}/${_YELLOW}$page.head.js${ENDCOLOR}\n"
 }
 
 # Create a Head Component
@@ -165,11 +185,17 @@ function nn() {
   sed -i "/return \[/a \\\t\t\t{\n\t\t\t\tsource: '/${1^}',\n\t\t\t\tdestination: '/$1',\n\t\t\t\tpermanent: true,\n\t\t\t}," next.config.js
 }
 
-# Create a Mongoose Model
-function nms() { 
+# Create a Mongoose Model for Express
+function nme() { 
   dir="src/models";
   mkdir -p $dir;
   echo -e "import { Schema, model } from 'mongoose';\nimport validator from 'mongoose-unique-validator';\nconst ${1^}Schema = new Schema({\n\t$1: { type: String },\n});\n${1^}Schema.plugin(validator, { message: 'El {PATH} debería ser único' });\nexport default model('${1^}', ${1^}Schema);\n" >> $dir/$1.schema.js;
+}
+# Create a Mongoose Model for Next
+function nmn() { 
+  dir="models";
+  mkdir -p $dir;
+  echo -e "import { Schema, model, models } from 'mongoose';\nimport validator from 'mongoose-unique-validator';\nconst ${1^}Schema = new Schema({\n\t$1: { type: String },\n});\n${1^}Schema.plugin(validator, { message: 'El {PATH} debería ser único' });\nexport default models.${1^} || $1model('${1^}', ${1^}Schema);\n" >> $dir/$1.schema.js;
 }
 # Create a router route
 function nr() {
