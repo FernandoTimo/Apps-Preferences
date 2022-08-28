@@ -13,31 +13,253 @@
     "statusBar": "darken",
     "titleBar": "darken"
   },
+  "material-icon-theme.folders.associations": {
+    "Phone": "Mobile",
+    "Photoshop": "Review",
+    "Coreldraw": "Mappings",
+    "screens": "mobile",
+    "Git": "Git",
+    "main": "api",
+    "Bash": "Guard",
+    "GitHub": "GitHub",
+    "globalStorage": "archive",
+    "github": "GitHub",
+    "vsCode": "vscode",
+    "User": "vscode",
+    "Releases": "GitHub",
+    "snippets": "json",
+    "workspaceStorage": "dump",
+    "Wacom": "custom",
+    "context": "global",
+    "heads": "mjml",
+    "project": "batch",
+    "target": "batch",
+    ".next": "batch",
+    ".vercel": "batch",
+    "sockets": "class",
+    "fetch": "temp",
+    "timoideas": "home",
+    "swr": "less",
+    "null": "batch"
+  },
+  "material-icon-theme.files.associations": {
+    "Dark.json": "replit",
+    "Ligth.json": "svg",
+    "*.middleware.js": "sentry",
+    "Timoideas.components.js": "moonscript",
+    "*.component.js": "react",
+    "*.head.js": "gemini",
+    "*.swr.js": "less",
+    ".svgrrc": "nim",
+    "*.module.css": "react_ts",
+    "*.styles.js": "react_ts",
+    "*.fetch.js": "search",
+    "*.context.js": "restql",
+    "*.hook.js": "adonis",
+    "database.js": "database",
+    "app.js": "smarty",
+    "next.config.js": "javascript-map",
+    "index.js": "puppet",
+    "*.controller.js": "fastlane",
+    "*.schema.js": "mint",
+    "_app.js": "nim",
+    "404.js": "http",
+    "Timoideas.js": "moonscript",
+    "server.js": "vite",
+    "*.socket.js": "stryker",
+    ".deployment": "azure",
+    "*.vscdb": "document",
+    "*.backup": "document",
+    "*.wacomprefs": "settings"
+  },
   "editor.fontFamily": "Cascadia Code",
   "editor.fontLigatures": true,
   "peacock.favoriteColors": [
     {
-      "name": "",
+      "name": ".",
       "value": "#f9e64a"
     },
     {
-      "name": "",
+      "name": ".",
       "value": "#215732"
     },
     {
-      "name": "",
+      "name": ".",
       "value": "#330f26"
     },
     {
-      "name": "",
+      "name": ".",
       "value": "#fa0"
     },
     {
-      "name": "",
+      "name": ".",
       "value": "#42b883"
+    },
+    {
+      "name": ".",
+      "value": "#3c7c72"
+    },
+    {
+      "name": ".",
+      "value": "#776371"
+    },
+    {
+      "name": ".",
+      "value": "#3ad3ce"
+    },
+    {
+      "name": ".",
+      "value": "#1adc67"
+    },
+    {
+      "name": ".",
+      "value": "#e56ea5"
+    },
+    {
+      "name": ".",
+      "value": "#e9f612"
+    },
+    {
+      "name": ".",
+      "value": "#c5c539"
+    },
+    {
+      "name": ".",
+      "value": "#295c5c"
+    },
+    {
+      "name": ".",
+      "value": "#d9dda7"
+    },
+    {
+      "name": ".",
+      "value": "#f184bf"
+    },
+    {
+      "name": ".",
+      "value": "#8a79ce"
+    },
+    {
+      "name": ".",
+      "value": "#2286ad"
+    },
+    {
+      "name": ".",
+      "value": "#2ee3ba"
+    },
+    {
+      "name": ".",
+      "value": "#fea792"
+    },
+    {
+      "name": ".",
+      "value": "#04d078"
+    },
+    {
+      "name": ".",
+      "value": "#677b51"
+    },
+    {
+      "name": ".",
+      "value": "#0ecd61"
+    },
+    {
+      "name": ".",
+      "value": "#f482ba"
+    },
+    {
+      "name": ".",
+      "value": "#b91fcd"
+    },
+    {
+      "name": ".",
+      "value": "#bdac9d"
+    },
+    {
+      "name": ".",
+      "value": "#1820ba"
+    },
+    {
+      "name": ".",
+      "value": "#8b62b3"
+    },
+    {
+      "name": ".",
+      "value": "#df2b0c"
+    },
+    {
+      "name": ".",
+      "value": "#a28e3e"
+    },
+    {
+      "name": ".",
+      "value": "#d5ecd3"
     }
   ],
   "workbench.iconTheme": "material-icon-theme",
   "vscode-graphql.useSchemaFileDefinitions": false,
-  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+  "color-highlight.languages": ["*"],
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "prettier.jsxSingleQuote": false,
+  "prettier.singleQuote": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": { "editor.autoClosingBrackets": "always" },
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "python.terminal.executeInFileDir": true,
+  "python.formatting.provider": "autopep8",
+
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.tabSize": 2
+  },
+  "workbench.colorCustomizations": {
+    "[Timoideas - Esmeralda Soft]": {
+      "tab.activeBackground": "#25503a",
+      "tab.activeForeground": "#ffc400",
+      "tab.hoverBackground": "#1a4941",
+      "list.inactiveSelectionBackground": "#323d39",
+      "list.focusForeground": "#ffc400"
+    }
+  },
+
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "foreground": "#8c8c8c"
+        }
+      }
+    ]
+  },
+  "vscodeGoogleTranslate.preferredLanguage": "Spanish",
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "polacode.shadow": "rgba(0, 0, 0, 0.55) 0px 20px 68px",
+  "polacode.transparentBackground": true,
+  "colorize.languages": ["typescript", "javascript", "css", "scss"],
+  "colorize.include": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "**/*.styl",
+    "**/*.js"
+  ],
+  "editor.inlineSuggest.enabled": true,
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.showActivityFromCollection": true,
+  "workbench.statusBar.visible": false,
+  "code-runner.runInTerminal": true,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true
 }

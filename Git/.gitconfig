@@ -1,9 +1,91 @@
 [core]
 	editor = code --wait
 [user]
-	email = fertimo99@gmail.com
-	name = FernandoTimo
+	email = Timoideas@hotmail.com
+	name = Timoideas
 [alias]
-	p = git push
-	pf = git push -f
-	pu = git push -u
+	s = status
+	c = "!f() { git commit -m \"$*\"; }; f"
+	ac = "!f() { git add . && git commit -m \"$*\"; }; f"
+	ch = checkout -- . 
+	cch = rm -r --cached 
+	v = "!f(){ git tag -a v$2 -m \"$1\" && git push origin v$2; };f"
+	bs = branch -M main 
+	r = restore .
+	rr = reset --soft HEAD~
+	ra = "!f() { ([ $1 == 'T' ] && (git remote add origin git@github-Timoideas:Timoideas/$2.git)) || ([ $1 == 'F' ] && ( git remote add origin git@github-FernandoTimo:FernandoTimo/$2.git)) };f"
+	rs = "!f() { ([ $1 == 'T' ] && (git remote set-url origin git@github-Timoideas:Timoideas/$2.git)) || ([ $1 == 'F' ] && ( git remote set-url origin git@github-FernandoTimo:FernandoTimo/$2.git)) };f"
+	p = "!git push && git scs"
+	pf = push -f origin main
+	pu = push -u origin main
+	file = config --global -e
+	# SHOW - logs
+	# show full info about commits
+	si = "!f() { git srr && git sb && git l && git scs ; }; f"
+	# show git exteral info
+	sei = "!gitk"
+	# show simple commit
+	scs = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Last commits $(tput sgr0)\" && [ -z $1 ] && (git log head -1 --oneline) || (git log head -$1 --oneline); }; f"
+	# show complete commit
+	sc = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Last commits $(tput sgr0)\" && [ -z $1 ] && (git log head -1) || (git log head -$1); }; f"
+	# show branch
+	sb = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Branch $(tput sgr0)\" && git branch; }; f"
+	# show remote origin
+	srr = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Remote origin $(tput sgr0)\" && git config --get remote.origin.url; }; f"
+	# show complete logs
+	sl = log --graph 
+	# show simple logs
+	sls = log --graph --oneline
+
+	# REMOVE - files and documents
+	# remove .git directory
+	k = "!f(){ rm -rf .git; };f"
+
+	# CONFIG - local, global user values.
+	un = config --global user.name 
+	um = config --global user.email
+	l = "!f() { echo -e \"\n$(tput setaf 9)---------- $(tput bold)Local user $(tput sgr0)$(tput setaf 6)\" && git config --local user.name && git config --local user.email; }; f"
+	g = "!f() { (echo -e \"\n$(tput setaf 9)---------- $(tput bold)Global user $(tput sgr0)$(tput setaf 6)\" && git config --global user.name && git config --global user.email; )}; f"
+	lt = "!git config --local user.name Timoideas && git config --local user.email Timoideas@hotmail.com"
+	gt = "!git config --global user.name Timoideas && git config --global user.email Timoideas@hotmail.com"
+	lf = "!git config --local user.name FernandoTimo && git config --local user.email fertimo99@gmail.com"
+	gf = "!git config --global user.name FernandoTimo && git config --global user.email fertimo99@gmail.com"
+
+	# NEW - local repos 
+	nlf = "!git clone https://github.com/FernandoTimo/Frontend-Next.js Frontend && rm -rf Frontend/.git && echo \"# Frontend\"> Frontend/README.md"
+	nlb = "!git clone https://github.com/FernandoTimo/Backend-Express.js Backend && rm -rf Backend/.git && echo \"# Backend\"> Backend/README.md"
+	nla = "!git nlf && git nlb"
+
+	# 	OUPUT - messages
+
+	cmt = "!f() { echo \"$(tput setaf 8) Por favor, ingresa un mensage para el commit. Ejemplo: git a Cualquier commit c/s comillas \"; };f"
+	hf = "!f() { echo \"$(tput setaf 8) >--     https://github.com/FernandoTimo/$1     --< \"; };f"
+	ht = "!f() { echo \"$(tput setaf 8) >--     https://github.com/Timoideas/$1     --< \"; };f"
+	msg = "!f() { printf \"\n$(tput setaf 8) Repositorio creado y enlazado correctamente para: \n\" && git l && git h$1 $2; } ; f"
+	validate = "!f() { ([ -z $1 ] &&  echo \"Please enter $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) in the first arugument.\")  || ( [[ $1 != 'T' && $1 != 'F' ]] && echo \"Invalid fisrt argument try: $(tput setaf 3) T $(tput sgr0) or $(tput setaf 3) F $(tput sgr0) \") || ([ -z $2 ] &&  echo \"$(tput smul)REPOSITORY_NAME$(tput rmul) in second argument is$(tput bold) $(tput setaf 7)$(tput setab 1) requiered $(tput sgr0). \") }; f"
+	ip = "!f() { git nr $1 $2 && echo \"# $2\" >> README.md && echo -e \"desktop.ini \n .vscode\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg; }; f"
+	mghf = "!echo \"$(tput setaf 8) >--     GitHub: FernandoTimo      --< \"";
+	mght = "!echo \"$(tput setaf 8) >--     GitHub: Timoideas      --< \"";
+	# GitHub - cli
+
+	# Cambia de cuenta de Github. Uso: git gh F
+	gh = "!f() { bash ~/Preferences/GH_CLI/gh$1.sh && git mgh$1; };f"
+	# Crea un repositorio remoto en Github y lo clona localmente. Uso: git nrr F RepoName
+	nr = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 -h https://timoideas.com && git h$1 $2 && git ra $1 $2 ; }; f"
+	# Crea un repositorio remoto en Github con la plantilla Frontend-Next y lo clona localmente. Uso: git nrf F Frontend-Clone
+	nrf = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 --template https://github.com/FernandoTimo/Frontend-Next && git ra $1 $2 && git pull origin main && echo \"# Frontend $2\"> README.md && git a Readme && git msg $1 $2 && npm i && npm run dev; }; f"
+	# Crea un repositorio remoto en Github con la plantilla Backend-Express y lo clona localmente. Uso: git nrb F Backend-Clone
+	nrb = "!f() { git init && git l$1 && git gh $1 && gh repo create $2 -d $2 --template https://github.com/FernandoTimo/Backend-Express && git ra $1 $2 && git pull origin main && echo \"# Backend $2\"> README.md && git rs $1 $2 && git a Readme && git msg $1 $2 && npm i && npm run dev; }; f"
+	# Crea un repositorio remoto en Github con la plantilla FullStack-Next y lo clona localmente. Uso: git nra F FullStack-Clone
+	nra = "!f() { git init && git l${1,,} && git gh $1 && gh repo create $2 --public -d $2 --template https://github.com/FernandoTimo/FullStack-Next && git ra $1 $2 && git pull origin main && echo \"# Frontend $2\"> README.md && git a Readme && git msg $1 $2 && npm i && npm run dev; }; f"
+	# Aqui agregar web y descripcion a github
+	vv = "!f() { mkdir -p \"Releases\" && echo -e \"### Core Changes \n - $2\" >> Releases/Release_$1.md && gh release create -t v$1 v$1 -F Releases/Release_$1.md $3; }; f"
+	
+	# 	FULL - comands
+
+	# crea un commit y guarda los cambios en GitHub. Uso: git a Cualquier commit c/s comillas
+	a = "!f() { git ac \"$*\" && git pu && git scs; }; f"
+	# crea un repositorio en Git y GitHub con las credenciales y nombre otorgados. Uso: git i F REPOSITORY-NAME 
+	i = "!f() { git validate $1 $2 || ( git nrr $1 $2 && echo \"# $2\" >> README.md && echo \"desktop.ini\" >> .gitignore && git ac Repository created successfully. && git pu && git sc && git msg $1 $2)}; f"
+	# crea un repositorio completo con Backend-Express y Frontend-Next para Git y GitHub. Uso: git ip F APP-NAME
+	ip = "!f() { (git nla && git i $1 $2) } ; f"
