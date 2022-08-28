@@ -259,4 +259,7 @@
   "thunder-client.saveToWorkspace": true,
   "thunder-client.showActivityFromCollection": true,
   "workbench.statusBar.visible": false,
-  "code-runner.runInTermi
+  "code-runner.runInTerminal": true,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true
+}
