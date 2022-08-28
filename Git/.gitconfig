@@ -6,7 +6,7 @@
 [alias]
 	s = status
 	c = "!f() { git commit -m \"$*\"; }; f"
-	ac = "!f() { git add . && git c \"$*\"; }; f"
+	ac = "!f() { git add . && git commit -m \"$*\"; }; f"
 	ch = checkout -- . 
 	cch = rm -r --cached 
 	v = "!f(){ git tag -a v$2 -m \"$1\" && git push origin v$2; };f"

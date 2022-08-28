@@ -57,8 +57,8 @@ function lb() {
 }
 # Crea un vínculo fuerte de GitHub CLI a la configuración de cuentas de GitHub
 function lgh() {
-  # rm -rf ~/Preferences/GitHub/.github;
-  cp -rl ~/Preferences/GH_CLI/"GitHub CLI" ~/AppData/Roaming/"GitHub CLI"/;
+  # rm -rf ~/AppData/Roaming/"GitHub CLI";
+  cp -rl ~/Preferences/GH_CLI/"GitHub CLI" ~/AppData/Roaming;
 }
 
 # SCALA
@@ -88,19 +88,35 @@ function nf() {
 function nc() { 
   if [[ -z $2 ]]
   then
-   dir="components"
+   dir="$PWD"
   else
-   dir="components/$2"
+   dir="$PWD/$2"
   fi
   component="${1^}"
   mkdir -p $dir;
   echo -e "import style from './$1.module.css';\nexport default function $1() {\n\treturn (\n\t\t<div className={style.Container}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}" >> $dir/$1.component.js ;
-  echo -e "/* Phone */\n.Container {\n\tdisplay: flex;\n}\n\n/* Tablet */\n@media (min-width: 576px) {\n}\n/* Laptop */\n@media (min-width: 768px) {\n}\n/* Desktop */\n@media (min-width: 1200px) {\n}" >> $dir/$1.module.css;  
+  echo -e "/* Phone */\n.Container {\n\t\n}\n\n/* Tablet */\n@media (min-width: 576px) {\n}\n/* Laptop */\n@media (min-width: 768px) {\n}\n/* Desktop */\n@media (min-width: 1200px) {\n}" >> $dir/$1.module.css;  
+  code $dir/$1.component.js $dir/$1.module.css;
+  ga $1 component created.;
+  echo -e "\n${_RED}--------/ ${_GRAY} Component and Style files created${ENDCOLOR}\n"
+}
+# Create a Component file. JS and CSS : nc ComponentName Location/Optional/FolderName
+function nrc() { 
+  if [[ -z $2 ]]
+  then
+   dir="$PWD/components"
+  else
+   dir="$PWD/components/$2"
+  fi
+  component="${1^}"
+  mkdir -p $dir;
+  echo -e "import style from './$1.module.css';\nexport default function $1() {\n\treturn (\n\t\t<div className={style.Container}>\n\t\t\t<h2>$1</h2>\n\t\t</div>\n\t);\n}" >> $dir/$1.component.js ;
+  echo -e "/* Phone */\n.Container {\n\t\n}\n\n/* Tablet */\n@media (min-width: 576px) {\n}\n/* Laptop */\n@media (min-width: 768px) {\n}\n/* Desktop */\n@media (min-width: 1200px) {\n}" >> $dir/$1.module.css;  
   code $dir/$1.component.js $dir/$1.module.css;
   ga $1 component created.;
   echo -e "\n${_RED}--------/ ${_GRAY} Component and Style files created\n\n\t${CYAN}$dir/${_YELLOW}$component.component.js\n\t${CYAN}$dir${GREY}/${_YELLOW}$component.module.css${ENDCOLOR}\n"
-
 }
+
 
 # Create a Context file.
 function nctx() {
@@ -128,6 +144,45 @@ function np() {
   nh $page;
   code $dir/$page.js styles/$dir/$page.module.css;
   echo -e "\n${_RED}--------/ ${_GRAY} Page, Style and Head files created\n\n\t${CYAN}$dir/${_YELLOW}$page.js\n\t${CYAN}styles/$dir${GREY}/${_YELLOW}$page.module.css\n\t${CYAN}$head${GREY}/${_YELLOW}$page.head.js${ENDCOLOR}\n"
+}
+# Create a Next API file with mongoose Schema for MongoDB.
+function nam() {
+  page="${1,,}"
+  file="${1,,}"
+  nmn $1;
+  if [[ -z $2 ]]; then
+    dir="pages/api"
+  else
+    dir="pages/api/$2"
+    if [[ $file == ${2##*/} ]]
+    then
+      file="index"
+    fi
+  fi
+  mkdir -p $dir;
+  echo -e "import database from 'database/database';\nimport ValidateObject from 'libraries/global/Validate';\nimport ${1^}Schema from 'models/$1.schema';\n\nexport default async function API(req, res) {\n\tconst { method } = req;\n\tawait database();\n\tswitch (method) {\n\t\tcase 'GET':\n\t\t\ttry {\n\t\t\t\tconst $page = await ${1^}Schema.find();\n\t\t\t\tres.status(200).json($page);\n\t\t\t} catch ({ message }) {\n\t\t\t\tres.status(400).json({ error: message });\n\t\t\t}\n\t\t\tbreak;\n\t\tcase 'POST':\n\t\t\ttry {\n\t\t\t\tconst body = await ValidateObject(req.body, ['$page']);\n\t\t\t\tconst $page = new ${1^}Schema(body);\n\t\t\t\tawait $page.save();\n\t\t\t\tres.status(200).json($page);\n\t\t\t} catch ({ message }) {\n\t\t\t\tres.status(400).json({ error: message });\n\t\t\t}\n\t\t\tbreak;\n\t\tcase 'PUT':\n\t\t\ttry {\n\t\t\t\tconst { _id } = req.body;\n\t\t\t\tconst body = await ValidateObject(req.body, ['$page']);\n\t\t\t\tconst $page = await ${1^}Schema.findOneAndUpdate({ _id }, body, { \n\t\t\t\t\tnew: true, \n\t\t\t\t});\n\t\t\t\tres.status(200).json($page);\n\t\t\t} catch ({ message }) {\n\t\t\t\tres.status(400).json({ error: message });\n\t\t\t}\n\t\t\tbreak;\n\t\tcase 'DELETE':\n\t\t\ttry {\n\t\t\t\tconst { _id } = req.body;\n\t\t\t\tawait ${1^}Schema.findOneAndDelete({ _id });\n\t\t\t\tres.status(200).json({ ok: true });\n\t\t\t} catch ({ message }) {\n\t\t\t\tres.status(400).json({ error: message });\n\t\t\t}\n\t\t\tbreak;\n\t\tdefault:\n\t\t\tres.status(405).json({\n\t\t\t\tmessage: 'Method not allowed',\n\t\t\t});\n\t\t\tbreak;\n\t}\n}" >> $dir/$file.js;
+  code $dir/$file.js models/$1.schema.js;
+  git add $dir/$file.js models/$1.schema.js && git commit -m "Add $1 API and Model" && git push;
+  echo -e "\n${_RED}--------/ ${_GRAY} API and Model files created\n\n\t${CYAN}$dir/${_YELLOW}$file.js\n\t${CYAN}models/${_YELLOW}$1.schema.js${ENDCOLOR}\n";
+}
+# Create a Next API file only get Route
+function nas() {
+  page="${1,,}"
+  file="${1,,}"
+  if [[ -z $2 ]]; then
+    dir="pages/api"
+  else
+    dir="pages/api/$2"
+    if [[ $file == ${2##*/} ]]
+    then
+      file="index"
+    fi
+  fi
+  mkdir -p $dir;
+  echo -e "import database from 'database/database';\n\nexport default async function API(req, res) {\n\tconst { method } = req;\n\tawait database();\n\tswitch (method) {\n\t\tcase 'GET':\n\t\t\ttry {\n\t\t\t\tconst $page = 'await ${1^}Schema.find()';\n\t\t\t\tres.status(200).json($page);\n\t\t\t} catch ({ message }) {\n\t\t\t\tres.status(400).json({ error: message });\n\t\t\t}\n\t\t\tbreak;\n\t\tdefault:\n\t\t\tres.status(405).json({\n\t\t\t\tmessage: 'Method not allowed',\n\t\t\t});\n\t\t\tbreak;\n\t}\n}" >> $dir/$file.js;
+  code $dir/$file.js;
+  git add $dir/$file.js && git commit -m "Add $1 API simple" && git push;
+  echo -e "\n${_RED}--------/ ${_GRAY} API created\n\n\t${CYAN}$dir/${_YELLOW}$file.js${ENDCOLOR}\n";
 }
 # Create a Dynamic Next page with custom Head. JS and CSS
 function npd() {
@@ -195,7 +250,7 @@ function nme() {
 function nmn() { 
   dir="models";
   mkdir -p $dir;
-  echo -e "import { Schema, model, models } from 'mongoose';\nimport validator from 'mongoose-unique-validator';\nconst ${1^}Schema = new Schema({\n\t$1: { type: String },\n});\n${1^}Schema.plugin(validator, { message: 'El {PATH} debería ser único' });\nexport default models.${1^} || $1model('${1^}', ${1^}Schema);\n" >> $dir/$1.schema.js;
+  echo -e "import { Schema, model, models } from 'mongoose';\nimport validator from 'mongoose-unique-validator';\nconst ${1^}Schema = new Schema({\n\t$1: { type: String },\n});\n${1^}Schema.plugin(validator, { message: 'El {PATH} debería ser único' });\nexport default models.${1^} || model('${1^}', ${1^}Schema);\n" >> $dir/$1.schema.js;
 }
 # Create a router route
 function nr() {
@@ -259,3 +314,4 @@ function re() {
   cd ~/AppData/Local/Android/Sdk/emulator;
   ./emulator -avd Timoideas;
 }
+

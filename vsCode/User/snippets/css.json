@@ -172,6 +172,11 @@
     "body": "pointer-events: none;",
     "description": "Pointer Events None"
   },
+  "Default Flex Properties": {
+    "prefix": "df",
+    "body": ["justify-content: flex-start;", "align-items: flex-start;"],
+    "description": "Default Flex Properties"
+  },
   "Border Radius": {
     "prefix": "br",
     "body": "border-radius: ${1:50%};",

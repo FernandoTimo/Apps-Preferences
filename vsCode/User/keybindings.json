@@ -103,5 +103,13 @@
   {
     "key": "shift+alt+p",
     "command": "polacode.activate"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "workbench.action.closeEditorsToTheRight"
+  },
+  {
+    "key": "ctrl+alt+q",
+    "command": "workbench.action.closeEditorsToTheLeft"
   }
 ]

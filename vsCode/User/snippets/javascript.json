@@ -251,14 +251,14 @@
   "<SVG></SVG>": {
     "prefix": "<SVG",
     "body": [
-      "<SVG heigth='${1:3}' width='${1:3}' icon={<${2:Timoideas} />} className={style.Icon}/>"
+      "<SVG height='${1:3}vh' width='${1:3}vh' icon={<${2:Timoideas} />} className={style.Icon}/>"
     ],
     "description": "Emergente Component"
   },
   "<Emergente></Emergente>": {
     "prefix": "<Emergente",
     "body": [
-      "<Emergente child={${1:<button role='close'>Close</button>}} openOnHover={false} position={['top', 'left',]} translate={['0vh', '0vh']} className={style.Emergente} id={'$2'}><button>Abrir</button></Emergente>"
+      "<Emergente\n\tchild={<button role='close'>Close</button>}\n\tcloseOnClickOutside={false}\n\topenOnHover={false}\n\tcloseOnEsc={false}\n\tposition={['top', 'left',]}\n\ttranslate={['0vh', 'center']}\n\tclassName={style.Emergente}\n\tgroup={'_${1:emergentes}'}\n\tid={'_$1'}\n>\n\t<button>Abrir</button>\n</Emergente>"
     ],
     "description": "Emergente Component"
   },
@@ -931,7 +931,7 @@
   "Import SVG": {
     "prefix": "isvg",
     "body": [
-      "import ${1/(.*)/${1:/capitalize}/} from 'public/svg/${2:global}/${1:svg}.svg';"
+      "import ${1/(.*)/${1:/capitalize}/}Icon from 'public/svg/${2:global}/${1:svg}.svg';"
     ],
     "description": "Import Theme"
   },

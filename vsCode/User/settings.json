@@ -201,8 +201,8 @@
   "color-highlight.languages": ["*"],
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": false,
+  "prettier.singleQuote": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": { "editor.autoClosingBrackets": "always" },
   "files.watcherExclude": {
@@ -224,9 +224,12 @@
     "[Timoideas - Esmeralda Soft]": {
       "tab.activeBackground": "#25503a",
       "tab.activeForeground": "#ffc400",
-      "tab.hoverBackground": "#1a4941"
+      "tab.hoverBackground": "#1a4941",
+      "list.inactiveSelectionBackground": "#323d39",
+      "list.focusForeground": "#ffc400"
     }
   },
+
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -240,7 +243,6 @@
   "vscodeGoogleTranslate.preferredLanguage": "Spanish",
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "workbench.statusBar.visible": false,
   "polacode.shadow": "rgba(0, 0, 0, 0.55) 0px 20px 68px",
   "polacode.transparentBackground": true,
   "colorize.languages": ["typescript", "javascript", "css", "scss"],
@@ -253,5 +255,8 @@
     "**/*.js"
   ],
   "editor.inlineSuggest.enabled": true,
-  "bracket-pair-colorizer-2.depreciation-notice": false
-}
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.showActivityFromCollection": true,
+  "workbench.statusBar.visible": false,
+  "code-runner.runInTermi
